@@ -1,18 +1,16 @@
 header {
     background-color: black;
 }
-.ProductImage {
-    max-width: 40%;
-}
 a {
     text-decoration: none;
     color:black
 }
-.milkQuantity {
+.product-quantity {
     width:40px;
 }
 .media-list-image {
-    width: 200px;
+    max-width: 200px;
+    max-height: 200px;
 }
 .add-to-cart {
     display: flex;
@@ -45,11 +43,25 @@ a {
 .navbar-icon-label {
     color:#006600;
 }
-
 .product-title  {
     color:black;
 }
-
 .logo-bar  {
     background-color: #ecf9f2;
+}
+.product  {
+    padding-left: 10%;
+    margin-top: 3%;
+}
+.green-button  {
+    background-color: #006600;
+    border-color: #e6ffe6;
+    color: white;
+}
+.green-button:hover {
+    color: white;
+    border-color: #e6ffe6;
+}
+.green-button:focus  {
+    box-shadow: 0 0 0 0.2rem rgb(0, 153, 0, 0.25); 
 }
