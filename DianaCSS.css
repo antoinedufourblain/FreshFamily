@@ -1,0 +1,55 @@
+header {
+    background-color: black;
+}
+.ProductImage {
+    max-width: 40%;
+}
+a {
+    text-decoration: none;
+    color:black
+}
+.milkQuantity {
+    width:30px;
+}
+.media-list-image {
+    width: 200px;
+}
+.add-to-cart {
+    display: flex;
+    align-items: center;
+
+}
+.add-to-cart-submit {
+    height: 40px;
+}
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+.icons {
+    height: 40px;
+    width: 40px;
+}
+.main-logo {
+    height: 60px;
+    width: 60px;
+}
+@media only screen and (max-width: 520px) {
+    .navbar-icon-label {
+        display: none;
+    }
+    .product {
+        flex-direction: column;
+    }
+  }
+.navbar-icon-label {
+    color:#006600;
+}
+
+.product-title  {
+    color:black;
+}
+
+.logo-bar  {
+    background-color: #ecf9f2;
+}
