@@ -68,10 +68,9 @@ a {
 .sign-in  {
     margin:auto;
     margin-top: 40px;
-    border: #006600;
+    background: #ecf9f2;
     width:300px;
     padding: 15px;
-    background-color: #ecf9f2;
     border: 5px #006600 solid;
     border-radius: 0.5cm;
 }
@@ -92,15 +91,47 @@ a {
 .sign-in p  {
     color: #006600;
     margin-top: 4px;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
+    padding: 2px;
 }
-.buttons  {
-    color:white;
-    background-color: #006600;
-}
-.sign-in input[type=submit]  {
+.sign-in input[type=submit], input[type=reset], button[type=button]  {
     color:white;
     background: #006600;
     border:none;
     box-shadow: 0 0 0 0.2rem rgb(0, 153, 0, 0.25); 
+}
+.sign-up {
+    width: 650px;
+    color:#006600;
+}
+@media only screen and (max-width: 650px)   {
+    .sign-up  {
+        width:320px;
+    }
+}
+select  {
+    margin: 8px;
+    margin-left: 0px;
+    margin-top: 3px;
+}
+#account  {
+    width:280px;
+}
+#personal-info  {
+    width: 280px;
+}
+.sign-up label {
+    display: block;
+}
+.sign-up input {
+    display: block;
+}
+#centered-submit input {
+    margin: 25px auto;
+}
+.account-personal-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 10px;
 }
