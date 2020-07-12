@@ -65,3 +65,42 @@ a {
 .green-button:focus  {
     box-shadow: 0 0 0 0.2rem rgb(0, 153, 0, 0.25); 
 }
+.sign-in  {
+    margin:auto;
+    margin-top: 40px;
+    border: #006600;
+    width:300px;
+    padding: 15px;
+    background-color: #ecf9f2;
+    border: 5px #006600 solid;
+    border-radius: 0.5cm;
+}
+.sign-in a  {
+    color:#006600;
+    font-weight: bold;
+}
+.sign-in input  {
+    margin: 8px;
+    margin-left: 0px;
+    margin-top: 3px;
+}
+.sign-in h2  {
+    padding: 15px;
+    color: #006600;
+    text-align: center;
+}
+.sign-in p  {
+    color: #006600;
+    margin-top: 4px;
+    margin-bottom: 2px;
+}
+.buttons  {
+    color:white;
+    background-color: #006600;
+}
+.sign-in input[type=submit]  {
+    color:white;
+    background: #006600;
+    border:none;
+    box-shadow: 0 0 0 0.2rem rgb(0, 153, 0, 0.25); 
+}
