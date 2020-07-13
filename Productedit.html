@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+                <title>Edit Products</title>
+                <meta name="viewport" content="width=device-width, initial scale=1.0">
+                <style>
+
+                </style>
+        </head>
+        <body>
+            <h2>Product Maintenance Page</h2>
+            <form id="add">
+                <p>Add a New Product</p>
+                <label for="prodname">Product Name</label>
+                <input type="text" id="prodname" name="prodname"><br><br>
+                <label for="category">Product Category</label>
+                <select id="category" name="category">
+                    <option value="vegetables">Fruits and Vegetables</option>
+                    <option value="meat">Meat Products</option>
+                    <option value="dairy">Dairy Products</option>
+                    <option value="pantry">Bread and Pantry</option>
+                    <option value="drinks">Beverages</option>
+                    <option value="organic">Organic Products</option>
+                </select><br><br>
+                <label for="prodnumber">Product Number</label>
+                <input type="text" id="prodnumber" name="prodnumber"><br><br>
+                <label for="inventory">Current Inventory</label>
+                <input type="number" id="inventory" name="inventory" min="0"><br><br>
+                <label for="description">Product Description</label>
+                <textarea id="description" name="description"></textarea><br><br>
+                <label for="ingredients">Product Ingredients</label>
+                <textarea id="ingredients" name="ingredients"></textarea><br><br>
+                <label for="storage">Storage Instructions</label>
+                <textarea id="storage" name="storage"></textarea><br><br>
+                <label for="image">Upload an image:</label>
+                <input type="file" id="image" name="image" accept="image/*"><br><br>
+                <input type="submit">
+
+
+            
+            </form>
+            <form id="edit">
+                <p>Edit an Existing Product</p>
+                <label for="category2">Product Category</label>
+                <select id="category2" name="category2">
+                
+                    <option value="vegetables">Fruits and Vegetables</option>
+                    <option value="meat">Meat Products</option>
+                    <option value="dairy">Dairy Products</option>
+                    <option value="pantry">Bread and Pantry</option>
+                    <option value="drinks">Beverages</option>
+                    <option value="organic">Organic Products</option>
+                </select><br><br>
+                <label for="existingprodname">Existing Product Name</label>
+                <input list="existingprodname" name="existingprodname">
+                <datalist id="existingprodname">
+                    <option value="Strawberries">
+                </datalist>
+                <label for="prodnameupdate">Update Product Name</label>
+                <input type="text" id="prodnameupdate" name="prodnameupdate"><br><br>
+                <label for="categoryupdate">Update Product Category</label>
+                <select id="categoryupdate" name="categoryupdate">
+                    <option value="vegetables">Fruits and Vegetables</option>
+                    <option value="meat">Meat Products</option>
+                    <option value="dairy">Dairy Products</option>
+                    <option value="pantry">Bread and Pantry</option>
+                    <option value="drinks">Beverages</option>
+                    <option value="organic">Organic Products</option>
+                </select><br><br>
+
+                <label for="prodnumberupdate">Update Product Number</label>
+                <input type="text" id="prodnumberupdate" name="prodnumberupdate"><br><br>
+                <label for="inventoryupdate">Update Current Inventory</label>
+                <input type="number" id="inventoryupdate" name="inventoryupdate" min="0"><br><br>
+                <label for="descriptionupdate">Update Product Description</label>
+                <textarea id="descriptionupdate" name="descriptionupdate"></textarea><br><br>
+                <label for="ingredientsupdate">Update Product Ingredients</label>
+                <textarea id="ingredientsupdate" name="ingredientsupdate"></textarea><br><br>
+                <label for="storageupdate">Update Storage Instructions</label>
+                <textarea id="storageupdate" name="storageupdate"></textarea><br><br>
+                <label for="imageupdate">Upload a New image:</label>
+                <input type="file" id="imageupdate" name="imageupdate" accept="image/*"><br><br>
+                <input type="submit">
+
+
+        </body>
+
+    </html>
