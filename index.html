@@ -1,90 +1,100 @@
 <!DOCTYPE html>
 <head>
-    <title>FreshFam Market</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshFamily Market</title>
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" type = "text/CSS" href = "StyleCSS.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </head>
-<body style=background-color:#64be6988>
 
-<div class="header">
-    <a href="index.html">
-        <div class="logo" img src="Images/logo.png">
-    </a>
-    <div class="header-right">
-        <a href="signin.html">
-            <div class="sign-in">
+<body>
+
+    <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
+        <a class="navbar-brand" href = "MainPage.html">
+            <img class="main-logo" src = "Images/FruitCartLogo.png">
+            <span class="navbar-icon-label">FRESHFAMILY MARKET</span>
         </a>
-        <a href="shoppingcart.html">
-            <div class="shoppingcart">
-        </a>
-
-    </div>
-</div>  
-<nav>
-
-</nav> 
-
-<p class=greeting>
+        <div class="navbar-right">
+            <a href = "Cart.html">
+                <img class = "icons" src = "Images/AddToCart.png">
+                <span class="navbar-icon-label">My Cart</span>
+            </a>
+            <a href = "SignIn.html">
+                <img class = "icons" src = "Images/SignInIconOnly.png">
+                <span class="navbar-icon-label">Sign In</span>
+            </a>
+        </div>
+    </nav>
+<h1 style=color:green;font-size:30pt;text-align:center>Welcome to FreshFamily Market</h1><br>
+<h2 style=color:green;font-size:20pt;text-align:center>Family-owned since 1965</h2><br>
+<p class=greeting1>
     Please select one of the aisles below to begin filling your cart for our quick and easy grocery delivery service
 </p>
-<div class=links>
+<div class="links1">
     
-    <div class="container">
-        <a href="FruitAndVegetables.html" width="25%">
-        <img src="Images/vegetables.jpg" alt="Fruits and Vegetables" class="image">
-            <div class="middle">
-                <div class="text">Fruits and Vegetables</div>
+    <div class="container1">
+        <a href="FruitAndVegetables.html">
+        <img src="Images/vegetables.jpg" alt="Fruits and Vegetables" class="image1">
+            <div class="middle1">
+                <div class="text1">Fruits and Vegetables</div>
             </div>
         </a>
     </div>
-    <div class="container">
+    <div class="container1">
         <a href="Dairy.html">
-        <img src="Images/dairy.jpg" alt="Dairy Products" class="image">
-            <div class="middle">
-                <div class="text">Dairy Products</div>
+        <img src="Images/dairy.jpg" alt="Dairy Products" class="image1">
+            <div class="middle1">
+                <div class="text1">Dairy Products</div>
             </div>
         </a>
     </div>
 
-    <div class="container">
+    <div class="container1">
         <a href="Meat.html">
-        <img src="Images/meat.jpg" alt="Meat Products" class="image">
-            <div class="middle">
-                <div class="text">Meat Products</div>
+        <img src="Images/meat.jpg" alt="Meat Products" class="image1">
+            <div class="middle1">
+                <div class="text1">Meat Products</div>
             </div>
         </a>
     </div>
 </div>
-<div class=links>   
-    <div class="container">
+<div class="links1">   
+    <div class="container1">
         <a href="Pantry.html">
-        <img src="Images/pantry.jpg" alt="Bread and Pantry" class="image">
-            <div class="middle">
-                <div class="text">Bread and Pantry</div>
+        <img src="Images/pantry.jpg" alt="Bread and Pantry" class="image1">
+            <div class="middle1">
+                <div class="text1">Bread and Pantry</div>
             </div>
         </a>
     </div>
 
-    <div class="container">
+    <div class="container1">
         <a href="Beverage.html">
-        <img src="Images/beverage.jpg" alt="Beverages" class="image">
-            <div class="middle">
-                <div class="text">Beverages</div>
+        <img src="Images/beverage.jpg" alt="Beverages" class="image1">
+            <div class="middle1">
+                <div class="text1">Beverages</div>
             </div>
         </a>
     </div>
 
-    <div class="container">
+    <div class="container1" width="25%">
         <a href="Organic.html">
-        <img src="Images/organic.jpg" alt="Organic Products" class="image">
-            <div class="middle">
-                <div class="text">Organic Products</div>
+        <img src="Images/organic.jpg" alt="Organic Products" class="image1">
+            <div class="middle1">
+                <div class="text1">Organic Products</div>
             </div>
         </a>
     </div>  
 </div>
+<div class="whitespace1"></div>
+            
 <footer>
-
+    <img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY">
+    <span class="name">FRESHFAMILY MARKET</span>
 </footer>
 </body>
