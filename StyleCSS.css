@@ -233,6 +233,40 @@ footer{
 .back-end-title-alt  {
     display: none;
 }
+.user-row  {
+    text-align: center;
+    align-items: center;
+    border: 2px solid white;
+    padding: 7px;
+    border-radius: 20px;
+    background-color: #ffe6e6;
+}
+.user-list {
+    padding: 7px;
+}
+.user-table-title  {
+    align-items: center;
+    font-weight: bold;
+    color:white;
+    text-align: center;
+    border: 2px solid white;
+    padding: 7px;
+    border-radius: 20px;
+    background-color: #990000;
+}
+.red-button  {
+    background-color: #990000;
+    color:white;
+    outline-color: white;
+}
+.user-list input  {
+    margin:2px;
+}
+.center-button  {
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
 @media only screen and (max-width: 625px)  {
     .back-end-title  {
         display: none;
@@ -249,3 +283,4 @@ footer{
         text-shadow: 2px 2px 0 grey;
     }
 }
+
