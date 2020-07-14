@@ -4,7 +4,7 @@
 <head>
     <title>Beverages</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/CSS" href="MimiStyleCSS.css">
+    <link rel="stylesheet" type="text/CSS" href="StyleCSS.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -22,7 +22,7 @@
 
 <body>
         <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
-            <a class="navbar-brand" href="MainPage.html">
+            <a class="navbar-brand" href="index.html">
                 <img class="main-logo" src="Images/FruitCartLogo.png">
                 <span class="navbar-icon-label">FRESHFAMILY MARKET</span>
             </a>
@@ -49,7 +49,7 @@
                 <div class="collapse navbar-collapse text-center" id="navbarsExample11">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="btn btn-success mr-3" href="#" role="button">Home</a>
+                            <a class="btn btn-success mr-3" href="index.html" role="button">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-success mr-3" href="FruitAndVegetables.html" role="button">Fruit and Vegetables</a>
@@ -69,8 +69,7 @@
                 </div>
             </div>
         </nav>
-        
-
+    
 
         <div class="whitespace"></div>
         <div class="title">
@@ -91,7 +90,7 @@
                             <p>Price: 4.75$</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class="waterQuantity ml-2 mr-2" type="number" name="Water" value="waterQuantity"
+                                <input class="product-quantity ml-2 mr-2" type="number" name="Water" value="waterQuantity"
                                     placeholder="1" />
                                 <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                     alt="Submit Form" />
@@ -110,7 +109,7 @@
                             <p>Price: 3.95$</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class="juiceQuantity ml-2 mr-2" type="number" name="Juice" value="JuiceQuantity"
+                                <input class="product-quantity ml-2 mr-2" type="number" name="Juice" value="JuiceQuantity"
                                     placeholder="1" />
                                 <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                     alt="Submit Form" />
@@ -133,7 +132,7 @@
                             <p>Price: 2.50$</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class="colaQuantity ml-2 mr-2" type="number" name="cola" value="colaQuantity"
+                                <input class="product-quantity ml-2 mr-2" type="number" name="cola" value="colaQuantity"
                                     placeholder="1" />
                                 <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                     alt="Submit Form" />
@@ -154,7 +153,7 @@
                             <p>Price: 3.25$</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class="beerQuantity ml-2 mr-2" type="number" name="Beer" value="BeerQuantity"
+                                <input class="product-quantity ml-2 mr-2" type="number" name="Beer" value="BeerQuantity"
                                     placeholder="1" />
                                 <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                     alt="Submit Form" />
@@ -175,7 +174,7 @@
     <div class="whitespace2"></div>
 
     <footer>
-        <img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY">
+        <a href="index.html"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
         <span class="name">FRESHFAMILY MARKET</span>
     </footer>
 </html>

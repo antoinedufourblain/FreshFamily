@@ -27,8 +27,8 @@ h2 {
     width:40px;
 }
 .media-list-image {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 300px;
+    max-height: 300px;
 }
 .add-to-cart {
     display: flex;
@@ -306,7 +306,6 @@ footer{
     color:white;
     outline-color: white;
 }
-center-su
 .user-list input  {
     margin:2px;
 }
@@ -361,9 +360,7 @@ center-su
     margin-right: auto;
     margin-bottom: 30px;
     flex-wrap: wrap;
-    display:inline;
-
-    
+    display:inline;  
 }
 a.container1{
     display:inline;
