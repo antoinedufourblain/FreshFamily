@@ -170,8 +170,9 @@ select  {
 footer{
     display:block;
     background-color: rgb(104, 170, 5);
-    width: 100%;
-    height: 90px;
+    position: fixed;
+    Width: 100%;
+    bottom: 0;
 }
 .logo{
     padding-top:4px;
@@ -190,7 +191,7 @@ footer{
 }
 .whitespace2  {
     width: 100%;
-    height: 150px;
+    height: 130px;
     background-color: white ;
 }
 
@@ -228,7 +229,7 @@ footer{
     font-size: 5rem;
     font-weight: bold;
     color: whitesmoke;
-    text-shadow: 4px 4px 0 #006600;
+    text-shadow: 4px 4px 0 #404040;
 }
 .back-end-title-alt  {
     display: none;
@@ -265,6 +266,8 @@ center-su
 }
 .center-button  {
     align-items: center;
+    display: flex;
+    justify-content: center;
 }
 .edit-user  {
     color: #990000;
