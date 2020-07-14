@@ -1,0 +1,121 @@
+h1 {
+    color:#ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30pt;
+    text-align: center;
+    font-weight: bolder;
+
+    width: 100%;
+    background: linear-gradient(rgb(106, 211, 2), darkgreen);
+    padding: 60px;
+}
+footer{
+    background-color: rgb(6, 128, 2);
+
+}
+.header{
+    height:60px;
+    background-image: url(images/background.html);
+
+}
+.container {
+    position: relative;
+    width:25%;
+    min-width: 300px;
+    height:auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+
+    
+}
+@media (hover: hover) {
+
+.image{
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    border-radius: 8px;
+}
+.middle{
+    transition: .5s ease;
+    opacity:0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.container:hover .image{
+    opacity: 0.3;
+}
+.container:hover .middle{
+    opacity:1;
+}
+.greeting{
+    text-align: center;
+    font-size: 15pt;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: bolder;
+    padding: 0% 15%;
+}
+.text {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+}
+
+.links{
+    text-align:center;
+    display: flex;
+    flex-wrap: wrap;
+    flex: none;
+}
+
+
+}
+
+@media (hover:none){
+    .image{
+        opacity: 0.5;
+        display: block;
+        width: 100%;
+        height: auto;
+        backface-visibility: hidden;
+        border-radius: 8px;
+    }
+    .middle{
+        opacity:1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+    }
+    
+
+    .greeting{
+        font-size: 15pt;
+        font-family: 'Courier New', Courier, monospace;
+        font-style: bolder;
+        padding: 0% 15%;
+    }
+    .text {
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+        padding: 16px 32px;
+    }
+    
+    .links{
+        text-align:center;
+        display: flex;
+        flex-wrap: wrap;
+        flex: none;
+    } 
+}
