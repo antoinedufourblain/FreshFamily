@@ -1,23 +1,83 @@
 <!DOCTYPE html>
     <html>
         <head>
-                <title>Product List</title>
-                <meta name="viewport" content="width=device-width, initial scale=1.0">
-                <style>
-                    .button {
-                        background-color: #4CAF50; /* Green */
-                        border: none;
-                        color: white;
-                        padding: 15px 32px;
-                        text-align: center;
-                        text-decoration: none;
-                        display: inline-block;
-                        font-size: 16px;
-                    }
-                </style>
+            <Title>Product List</Title>
+            <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+                integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+            <link rel = "stylesheet" type = "text/CSS" href = "StyleCSS.css">
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+                crossorigin="anonymous"></script>
         </head>
 
+
         <body>
+            <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
+                <a class="navbar-brand" href = "MainPage.html">
+                    <img class="main-logo" src = "Images/FruitCartLogo.png">
+                    <span class="navbar-icon-label">FRESHFAMILY MARKET</span>
+                </a>
+                <div class="navbar-right">
+                    <a href = "SignIn.html">
+                        <img class = "icons" src = "Images/SignInIconOnly.png">
+                        <span class="navbar-icon-label">Sign Out</span>
+                    </a>
+                </div>
+            </nav>
+
+            <nav class="navbar navbar-expand-lg navbar-dark navbar-full" style="background-color:rgb(104, 170, 5)">
+                <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
+                    <a class="navbar-brand" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample11"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse text-center" id="navbarsExample11">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="btn btn-success mr-3" href="#" role="button">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-success mr-3" href="FruitAndVegetables.html" role="button">Fruit and Vegetables</a>
+                            </li>
+                                <a class="btn btn-success mr-3" href="Meat.html" role="button">Meat</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-success mr-3" href="Dairy.html" role="button">Dairy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-success mr-3" href="Drinks.html" role="button">Beverages</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-success mr-3" href="#" role="button">Organic</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+            <div class = "back-end-nav-title">
+                <nav id = "back-end-nav">
+                    <a href="UserList.html">User List</a>
+                    <a href="ProductList.html">Product List</a>
+                    <a href="OrderList.html">Order List</a>
+                </nav>
+
+                <div class = "back-end-title">
+                    <h1>PRODUCT LIST</h1>
+                </div>
+            </div>
+
+            <div class = "back-end-title-alt">
+                <h1>PRODUCT LIST</h1>
+            </div>
             <ul style="list-style-type:none;">
                 <li><h4>Fruits and Vegetables</h4>
                 <table style=width:50%>
@@ -30,16 +90,22 @@
                         <td><a href="Strawberries.html">Strawberries</a></td>
                         <td>544-380-66</td>
                         <td>10</td>
+                        <td>Edit Product</td>
+                        <td>Delete Product</td>
                     </tr>
                     <tr>
                         <td><a href="Eggplant.html">California Eggplant</a></td>
                         <td>544-381-66</td>
                         <td>12</td>
+                        <td>Edit Product</td>
+                        <td>Delete Product</td>
                     </tr>
                     <tr>
                         <td><a href="Avocado.html">Avocado</a></td>
                         <td>544-382-66</td>
                         <td>5</td>
+                        <td>Edit Product</td>
+                        <td>Delete Product</td>
                     </tr>
                 </table></li>
                 <li><h4>Meat</h4>
@@ -50,19 +116,32 @@
                             <th>Inventory</th>
                         </tr>
                         <tr>
-                            <td><a href=""></a></td>
-                            <td></td>
-                            <td></td>
+                            <td><a href="Chicken.html">Chicken Thighs</a></td>
+                            <td>684-324-12</td>
+                            <td>10</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
                         </tr>
                         <tr>
-                            <td><a href=""></a></td>
-                            <td></td>
-                            <td></td>
+                            <td><a href="Beef.html">Lean Ground Beef</a></td>
+                            <td>684-564-61</td>
+                            <td>12</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
                         </tr>
                         <tr>
-                            <td><a href=""></a></td>
-                            <td></td>
-                            <td></td>
+                            <td><a href="Sausage.html">Italian Sausage</a></td>
+                            <td>684-723-32</td>
+                            <td>8</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
+                        </tr>
+                        <tr>
+                            <td><a href="Bacon.html">Sliced Bacon</a></td>
+                            <td>684-723-32</td>
+                            <td>15</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
                         </tr>
 
                     </table></li>
@@ -77,11 +156,15 @@
                             <td><a href="Milk.html">2% Milk</a></td>
                             <td>544-389-65</td>
                             <td>15</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
                         </tr>
                         <tr>
                             <td><a href="Creme.html">10% Cream</a></td>
                             <td>544-389-66</td>
                             <td>7</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
                         </tr>
                     </table></li>
                 <li><h4>Bread and Pantry</h4>
@@ -95,16 +178,22 @@
                             <td><a href="Baguette.html">Baguette</a></td>
                             <td>799-455-72</td>
                             <td>6</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
                         </tr>
                         <tr>
                             <td><a href="Croissant.html">Croissants</a></td>
                             <td>799-343-11</td>
                             <td>4</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
                         </tr>
                         <tr>
                             <td><a href="Cookies.html">Chocolate Chip Cookies</a></td>
                             <td>799-247-27</td>
                             <td>8</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
                         </tr>
 
 
@@ -117,20 +206,33 @@
                             <th>Inventory</th>
                         </tr>
                         <tr>
-                            <td><a href=""></a></td>
-                            <td></td>
-                            <td></td>
+                            <td><a href="water.html">Eska Water</a></td>
+                            <td>233-673-45</td>
+                            <td>5</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
                         </tr>
                         <tr>
-                            <td><a href=""></a></td>
-                            <td></td>
-                            <td></td>
+                            <td><a href="Juice.html">Orange Juice</a></td>
+                            <td>233-568-15</td>
+                            <td>8</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
                         </tr>
                         <tr>
-                            <td><a href=""></a></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                            <td><a href="Cola.html">Coca-Cola</a></td>
+                            <td>233-348-92</td>
+                            <td>17</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
+                        </tr>   
+                        <tr>
+                            <td><a href="Beer.html">Coors Light Beer</a></td>
+                            <td>233-545-78</td>
+                            <td>20</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
+                        </tr>                    
 
 
                     </table></li>
@@ -140,28 +242,41 @@
                             <th>Product Name</th>
                             <th>Reference Number</th>
                             <th>Inventory</th>
+
                         </tr>
                         <tr>
                             <td><a href="Edamame.html">Edamame</a></td>
                             <td>086-223-55</td>
                             <td>6</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
                         </tr>
                         <tr>
                             <td><a href="Kugua.html">Bitter Melon</a></td>
                             <td>086-250-70</td>
                             <td>3</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
                         </tr>
                         <tr>
                             <td><a href="Kale.html">Kale</a></td>
                             <td>086-753-09</td>
                             <td>6</td>
+                            <td>Edit Product</td>
+                            <td>Delete Product</td>
                         </tr>
 
 
                 </table></li></ul>
             
-            <a href="Productedit.html" class="button">Add or Edit Product Listings</a>
+                <a href="Productedit.html"><div class = "center-button"><input class = "btn red-button" type = "button" value = "Add or Edit Product"></div></a>
 
             </button>
         </body>
+        <div class="whitespace2"></div>
+            
+        <footer>
+            <img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY">
+            <span class="name">FRESHFAMILY MARKET</span>
+        </footer>
     </html>
