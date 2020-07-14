@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <Title>Sign Up</Title>
+            <Title>User List</Title>
             <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
                 integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -24,13 +24,9 @@
                     <span class="navbar-icon-label">FRESHFAMILY MARKET</span>
                 </a>
                 <div class="navbar-right">
-                    <a href = "Cart.html">
-                        <img class = "icons" src = "Images/AddToCart.png">
-                        <span class="navbar-icon-label">My Cart</span>
-                    </a>
                     <a href = "SignIn.html">
                         <img class = "icons" src = "Images/SignInIconOnly.png">
-                        <span class="navbar-icon-label">Sign In</span>
+                        <span class="navbar-icon-label">Sign Out</span>
                     </a>
                 </div>
             </nav>
@@ -65,61 +61,69 @@
                     </div>
                 </div>
             </nav>
+            
+            <div class = "back-end-nav-title">
+                <nav id = "back-end-nav">
+                    <a href="UserList.html">User List</a>
+                    <a href="ProductList.html">Product List</a>
+                    <a href="OrderList.html">Order List</a>
+                </nav>
 
-            <div class = "sign-in sign-up">
-                <h2>SIGN UP</h2>
-                <form>
-                    <div class="account-personal-info">
-                        <div id = "account">
-                            <h4>Account <br>Information</h4>
-                            <label for="e-mail">E-mail Address</label>
-                            <input type = "text" name = "e-mail" id = "e-mail">
-                            <label for="password" id = "password-label">Password</label>
-                            <div class = "comment">*must contain at least 8 characters one of which is a number</div>
-                            <input type = "text" name = "password" id = "password">
-                            <label for="confirm-password">Confirm Password</label>
-                            <input type = "text" name = "confirm-password" id = "confirm-password">
-                        </div>
-                        <div id = "personal-info">
-                            <h4>Personal <br>Information</h4>
-                            <label for="first-name">First Name</label>
-                            <input type = "text" name = "first-name" id="first-name">
-                            <label for="last-name">Last Name</label>
-                            <input type = "text" name = "last-name" id="last-name">
-                            <label for="street-address">Street Address (eg. 218 York Avenue)</label>
-                            <input type = "text" name = "street-address" id="street-address">
-                            <label for="apartment">Apartment</label>
-                            <input type = "number" name = "apartment" id="apartment"  placeholder = "(Optional)">
-                            <label for="city">City</label>
-                            <input type = "text" name = "city" id="city">
-                            <label for="province">Province</label>
-                            <select name = "province" id="province">
-                                <option selected disabled>Select Province</option>
-                                <option>Quebec</option>
-                                <option>Ontario</option>
-                                <option>Prince Edward's Island</option>
-                                <option>Manitoba</option>
-                                <option>Alberta</option>
-                                <option>Saskachewan</option>
-                                <option>British Columbia</option>
-                                <option>Newfoundland and Labrador</option>
-                                <option>Northwest Territories</option>
-                                <option>Nova Scotia</option>
-                                <option>New Brownswick</option>
-                                <option>Yukon</option>
-                                <option>Nunavut</option>
-                            </select>
-                            <label for="postal-code">Postal Code</label>
-                            <input type = "text" name = "postal-code" id="postal-code">
-                            <label for="phone-number">Phone Number</label>
-                            <input type = "text" name = "phone-number" id = "phone-number" placeholder = "e.g. (514)-999-9999">
-                        </div>
-                    </div>
-                    <div class = "centered-submit">
-                        <input type = "submit" value = "CREATE AN ACCOUNT">
-                    </div>
-                </form>
+                <div class = "back-end-title">
+                    <h1>USER LIST</h1>
+                </div>
             </div>
+
+            <div class = "back-end-title-alt">
+                <h1>USER LIST</h1>
+            </div>
+
+            <div class = "container-fluid user-list">
+                <div class = "row user-table-title">
+                    <div class = "col-sm-1">TYPE</div>
+                    <div class = "col-sm-5">E-MAIL (ID)</div>
+                    <div class = "col-sm-2">NAME</div>
+                    <div class = "col-sm-1">SIGN-UP DATE<div class = "comment">(DD-MM-YYYY)</div></div>
+                    <div class = "col-sm-1">ORDER LIST</div>
+                    <div class = "col-sm-2">ACTION</div>
+                </div>
+                <div class = "row user-row">
+                    <div class = "col-sm-1">Admin</div>
+                    <div class = "col-sm-5">diana.afanasyev@mail.mcgill.ca</div>
+                    <div class = "col-sm-2">Diana Afanasyev</div>
+                    <div class = "col-sm-1">22-07-2019</div>
+                    <div class = "col-sm-1"><a href = "">Order List</a></div>
+                    <div class = "col-sm-2">
+                        <input class = "btn red-button" type = "button" value = "Edit">
+                        <input class = "btn red-button" type = "button" value = "Delete">
+                    </div>
+                </div>
+                <div class = "row user-row">
+                    <div class = "col-sm-1">User</div>
+                    <div class = "col-sm-5">John.Smith@gmail.com</div>
+                    <div class = "col-sm-2">John Smith</div>
+                    <div class = "col-sm-1">18-09-2011</div>
+                    <div class = "col-sm-1"><a href = "">Order List</a></div>
+                    <div class = "col-sm-2">
+                        <input class = "btn red-button" type = "button" value = "Edit">
+                        <input class = "btn red-button" type = "button" value = "Delete">
+                    </div>
+                </div>
+                <div class = "row user-row">
+                    <div class = "col-sm-1">User</div>
+                    <div class = "col-sm-5">j-carpie@hotmail.com</div>
+                    <div class = "col-sm-2">Jane Carpenter</div>
+                    <div class = "col-sm-1">29-08-2019</div>
+                    <div class = "col-sm-1"><a href = "">Order List</a></div>
+                    <div class = "col-sm-2">
+                        <input class = "btn red-button" type = "button" value = "Edit">
+                        <input class = "btn red-button" type = "button" value = "Delete">
+                    </div>
+                </div>
+            </div>
+
+            <div class = "center-button"><input class = "btn red-button" type = "button" value = "Add User"></div>
+            
             <div class="whitespace1"></div>
             
             <footer>
@@ -128,3 +132,6 @@
             </footer>
         </body>
     </html>
+
+
+            
