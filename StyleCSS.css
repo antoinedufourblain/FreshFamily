@@ -27,9 +27,8 @@ h2 {
     width:40px;
 }
 .media-list-image {
-    max-height: 300px;
     max-width: 300px;
-
+    max-height: 300px;
 }
 .add-to-cart {
     display: flex;
@@ -161,9 +160,6 @@ h2 {
     width: 650px;
     color:#006600;
 }
-.sign-up select  {
-    height:30px;
-}
 .sign-up h4  {
     text-align: center;
     padding-bottom: 25px;
@@ -212,7 +208,6 @@ select  {
 .account-personal-info input  {
     width:280px;
 }
-
 footer{
     display:block;
     background-color: rgb(104, 170, 5);
@@ -402,7 +397,7 @@ a.container1{
 .greeting1{
     text-align: center;
     font-size: 15pt;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-style: bolder;
     padding: 0% 15%;
 }
@@ -606,8 +601,37 @@ a.container1{
 
 
 .quantity {
-  margin-right: 60px;
+  margin-right: 2em;
 }
+
+@media only screen and (max-width: 625px){
+    .quantity {
+        margin-right: 0em;
+      }
+
+      .cart-item-title{
+          font-size:1em;
+      }
+}
+
+@media only screen and (max-width: 375px){
+    .quantity {
+        margin-right: 0em;
+      }
+
+      .cart-item-title{
+          font-size:0.7em;
+      }
+      .cart-price{
+        font-size:0.9em;
+    }
+
+    .btn-continue{
+        font-size:0.5em;
+    }
+
+}
+
 .quantity input {
   border: none;
   text-align: center;
