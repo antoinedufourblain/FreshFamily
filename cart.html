@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/CSS" href="MimiStyleCSS.css">
+    <link rel="stylesheet" type="text/CSS" href="StyleCSS.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -47,25 +47,24 @@
             <div class="collapse navbar-collapse text-center" id="navbarsExample11">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="btn btn-success mr-3" href="#" role="button">Home</a>
+                        <a class="btn btn-success mr-3" href="index.html" role="button">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success mr-3" href="#" role="button">Fruits</a>
+                        <a class="btn btn-success mr-3" href="FruitAndVegetables.html" role="button">Fruit and Vegetables</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="btn btn-success mr-3" href="#" role="button">Vegetables</a>
-                    </li>
-                    <li class="nav-item active">
                         <a class="btn btn-success mr-3" href="Meat.html" role="button">Meat</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-success mr-3" href="Dairy.html" role="button">Dairy</a>
                     </li>
                     <li class="nav-item">
+                        <a class="btn btn-success mr-3" href="Pantry.html" role="button">Bread and Pantry</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="btn btn-success mr-3" href="Drinks.html" role="button">Beverages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success mr-3" href="#" role="button">Organic</a>
+                        <a class="btn btn-success mr-3" href="Organic.html" role="button">Organic</a>
                     </li>
                 </ul>
             </div>
@@ -73,8 +72,8 @@
     </nav>
 
 
-<div class="container1 content-section">
-    <button class="btn btn-dark btn-continue" type="button">Continue Shopping</button>
+<div class="container2 content-section">
+    <button class="btn btn-dark btn-continue" type="cartbutton">Continue Shopping</button>
     <h2 class="cart-header" style = "font-size: 1.6em;margin-bottom: 35px;margin-top: 10px;">SHOPPING CART</h2>
     <div class="cart-row">
         <span class="cart-item cart-header cart-column">ITEMS</span>
@@ -90,16 +89,16 @@
             <span class="cart-price cart-column">$7.25</span>
             <div class="cart-quantity cart-column">
                 <div class="quantity">
-                    <button class="plus-btn" type="button" name="button">
+                    <button class="plus-btn" type="cartbutton" name="button">
                         <div class="plus">+</div>
                       </button>
                     <input type="text" name="name" value="1">
-                    <button class="minus-btn" type="button" name="button">
+                    <button class="minus-btn" type="cartbutton" name="button">
                         <div class="minus">-</div>
                     </button>
                   </div>
                
-                <button class="btn btn-danger" type="button">X</button>
+                <button class="btn btn-danger" type="cartbutton">X</button>
             </div>
         </div>
         <div class="cart-row">
@@ -111,15 +110,15 @@
             <div class="cart-quantity cart-column">
                 <div class="quantity">
 
-                    <button class="plus-btn" type="button" name="button">
+                    <button class="plus-btn" type="cartbutton" name="button">
                         <div class="plus">+</div>
                       </button>
                         <input type="text" name="name" value="1">
-                        <button class="minus-btn" type="button" name="button">
+                        <button class="minus-btn" type="cartbutton" name="button">
                             <div class="minus">-</div>
                         </button>
                   </div>
-                <button class="btn btn-danger" type="button">X</button>
+                <button class="btn btn-danger" type="cartbutton">X</button>
             </div>
         </div>
         <div class="cart-row">
@@ -130,15 +129,15 @@
             <span class="cart-price cart-column">$3.99</span>
             <div class="cart-quantity cart-column">
                 <div class="quantity">
-                    <button class="plus-btn" type="button" name="button">
+                    <button class="plus-btn" type="cartbutton" name="button">
                       <div class="plus">+</div>
                     </button>
                     <input type="text" name="name" value="1">
-                    <button class="minus-btn" type="button" name="button">
+                    <button class="minus-btn" type="cartbutton" name="button">
                         <div class="minus">-</div>
                     </button>
                   </div>
-                <button class="btn btn-danger" type="button">X</button>
+                <button class="btn btn-danger" type="cartbutton">X</button>
             </div>
         </div>
 
@@ -150,15 +149,15 @@
             <span class="cart-price cart-column">$2.25</span>
             <div class="cart-quantity cart-column">
                 <div class="quantity">
-                    <button class="plus-btn" type="button" name="button">
+                    <button class="plus-btn" type="cartbutton" name="button">
                       <div class="plus">+</div>
                     </button>
                     <input type="text" name="name" value="1">
-                    <button class="minus-btn" type="button" name="button">
+                    <button class="minus-btn" type="cartbutton" name="button">
                         <div class="minus">-</div>
                     </button>
                   </div>
-                <button class="btn btn-danger" type="button">X</button>
+                <button class="btn btn-danger" type="cartbutton">X</button>
             </div>
         </div>
         <div class="cart-row">
@@ -169,15 +168,15 @@
             <span class="cart-price cart-column">$2.49</span>
             <div class="cart-quantity cart-column">
                 <div class="quantity">
-                    <button class="plus-btn" type="button" name="button">
+                    <button class="plus-btn" type="cartbutton" name="button">
                       <div class="plus">+</div>
                     </button>
                     <input type="text" name="name" value="1">
-                    <button class="minus-btn" type="button" name="button">
+                    <button class="minus-btn" type="cartbutton" name="button">
                         <div class="minus">-</div>
                     </button>
                   </div>
-                <button class="btn btn-danger" type="button">X</button>
+                <button class="btn btn-danger" type="cartbutton">X</button>
             </div>
         </div>
     </div>
@@ -210,8 +209,9 @@
         <span class="cart-total-price">$24.58</span>
     </div>
 
-
-    <button class="btn btn-dark btn-purchase" type="button">PURCHASE</button>
+    <div class ="purchasebutton">
+    <button class="btn btn-dark btn-purchase" type="cartbutton">PURCHASE</button>
+    </div>
     
 </div>
 </body>
