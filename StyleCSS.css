@@ -60,7 +60,7 @@ h2 {
 .btn-success {
     background-color: transparent !important;
     border-color: transparent !important;
-    font-size:  16px !important;
+    font-size:  17px !important;
 
     font-family: Verdana, "Geneva", Tahoma, sans-serif !important;
 }
@@ -586,7 +586,7 @@ a.container1{
     margin-bottom: 10px;
 
     font-size: 1em;
-    padding: 0.5em;
+    padding: 0.4em;
     background-color: rgb(62, 102, 2);
     color: white;
 }
