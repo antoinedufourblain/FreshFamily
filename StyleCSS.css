@@ -27,8 +27,9 @@ h2 {
     width:40px;
 }
 .media-list-image {
-    max-width: 300px;
     max-height: 300px;
+    max-width: 300px;
+
 }
 .add-to-cart {
     display: flex;
@@ -160,6 +161,9 @@ h2 {
     width: 650px;
     color:#006600;
 }
+.sign-up select  {
+    height:30px;
+}
 .sign-up h4  {
     text-align: center;
     padding-bottom: 25px;
@@ -208,6 +212,7 @@ select  {
 .account-personal-info input  {
     width:280px;
 }
+
 footer{
     display:block;
     background-color: rgb(104, 170, 5);
