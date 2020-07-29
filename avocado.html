@@ -19,7 +19,7 @@
                 <link rel="icon" href="Images/FruitCartLogo.png">
         </head>
 
-        <body>
+        <body onload = "loadQuantity('avocadoQuantity'); loadPackageType('avocadoQuantityType'); displayAvocadoPriceOnload()">
 
             <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
                 <a class="navbar-brand" href = "index.html">
@@ -75,16 +75,16 @@
             <div class="media product" style="margin-top: 0; margin-left: 5%">
                 <img src="Images/Avocado.png" class="media-list-image mr-3" alt="Avocado">
                 <div class="media-body">
-                <div class="textblack" style="color: black">
+                <div class="textblack" style="color: black;">
                   <h5 class="mt-0">Avocado</h5>
                     <p>Weight: varies</p>
-                    <p>Price: $1.49 each</p>
+                    <p name = "avocadoPrice"></p>
                     <p>
-                        <button class="btn green-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn green-button" type="button" onclick="openCollapse()">
                             More Description
                         </button>
                     </p>
-                    <div class="collapse mr-5" id="collapseExample">
+                    <div class="mr-5" id="collapse" style = "display: none; max-height: 0; overflow:hidden; transition: max-height 0.35s ease-out">
                         <div class="card card-body">
                             <h6>Product Number</h6>
                             <p>544-382-66</p>
@@ -96,9 +96,16 @@
                             <p>Refrigerate until consumption or up to one week</p>
                         </div>
                     </div>
-                    <form class="add-to-cart">
-                        <input class = "product-quantity ml-2 mr-2" type = "number" name = "avocado" placeholder="1"/>
-                        <input class="add-to-cart-submit" type = "image" name = "ToCart"  src = "Images/AddToCart.png" alt="Submit Form"/>
+                    <form id = "avocadoCart">
+                        <h6>Please select unit type</h6>
+                        <input type = "radio" name = "quantityType" id = "SingleUnit" value = "SingleUnit" onchange="savePackageType('SingleUnit', 'avocadoQuantityType'); displayAvocadoPriceOnload();">
+                        <label for = "SingleUnit">Single Unit</label><br>
+                        <input type = "radio" name = "quantityType" id = "6pack" value = "6pack" onchange="savePackageType('6pack', 'avocadoQuantityType'); displayAvocadoPriceOnload()">
+                        <label for = "6pack">Package of 6</label><br>
+                        <div class="add-to-cart">
+                            <input class = "product-quantity ml-2 mr-2" type = "number" name = "avocado" id = "avocadoQuantity" onchange="saveQuantity('avocadoQuantity'); displayAvocadoPriceOnload()" placeholder="1"/>
+                            <input class="add-to-cart-submit" type = "image" name = "ToCart"  src = "Images/AddToCart.png" alt="Submit Form"/>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -109,5 +116,6 @@
                   <a href="index.html"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
                   <span class="navbar-icon-label name">FRESHFAMILY MARKET</span>
               </footer>
+              <script type = "text/javascript" src = "JavaScript/DianaProducts.js"></script>
         </body>
     </html>

@@ -13,7 +13,7 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
             <link rel="icon" href="Images/FruitCartLogo.png">
         </head>
-        <body>
+        <body onload = "loadQuantity('eggplantQuantity')">
             <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
                 <a class="navbar-brand" href = "index.html">
                     <img class="main-logo" src = "Images/FruitCartLogo.png">
@@ -72,11 +72,11 @@
                     <p>1 unit</p>
                     <p>Price: $2.49 each</p>
                     <p>
-                        <button class="btn green-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn green-button" type="button" onclick="openCollapse()">
                             More Description
                         </button>
                     </p>
-                    <div class="collapse mr-5" id="collapseExample">
+                    <div class="mr-5" id="collapse" style = "display: none; max-height: 0; overflow:hidden; transition: max-height 0.35s ease-out">
                         <div class="card card-body">
                             <h6>Product Number</h6>
                             <p>544-381-66</p>
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <form class="add-to-cart">
-                        <input class = "product-quantity ml-2 mr-2" type = "number" name = "eggplant" placeholder="1"/>
+                        <input class = "product-quantity ml-2 mr-2" type = "number" name = "eggplant" id = "eggplantQuantity" onchange="saveQuantity('eggplantQuantity')" placeholder="1"/>
                         <input class="add-to-cart-submit" type = "image" name = "ToCart"  src = "Images/AddToCart.png" alt="Submit Form"/>
                     </form>
                 </div>
@@ -101,5 +101,6 @@
                 <a href="index.html"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
                 <span class="navbar-icon-label name">FRESHFAMILY MARKET</span>
             </footer>
+            <script type = "text/javascript" src = "JavaScript/DianaProducts.js"></script>
         </body>
     </html>
