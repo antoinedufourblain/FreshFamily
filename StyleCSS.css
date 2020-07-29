@@ -565,7 +565,8 @@ a.container1{
     margin-right: 20px;
 }
 
-.cart-total-price {
+.cart-total-price, .cart-subtotal-price,
+    .cart-taxesGST-price, .cart-taxesQST-price, .cart-shipping-price {
     color: #333;
     font-size: 1.1em;
 }
@@ -671,4 +672,16 @@ a.container1{
 button:focus,
 input:focus {
   outline:0;
+}
+
+.cart-subtotal-price, .cart-taxesQST-price, .cart-taxesGST-price, .cart-shipping-price, .cart-total-price{
+    animation: fadeIn 2s;
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
