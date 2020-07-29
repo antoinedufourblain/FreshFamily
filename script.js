@@ -1,5 +1,7 @@
+$(document).ready(function() {
+    updateCartTotal()
 
-var removeItemButtons = document.getElementsByClassName('btn-danger')
+    var removeItemButtons = document.getElementsByClassName('btn-danger')
     for (var i = 0; i < removeItemButtons.length; i++) {
         var button = removeItemButtons[i]
         button.addEventListener('click', removeItem)
@@ -19,6 +21,7 @@ function removeItem(event) {
     var buttonClicked = event.target
     buttonClicked.parentElement.parentElement.remove()
     updateCartTotal()
+
 }
 
 $('.minus-btn').on("click", function() {
@@ -62,7 +65,7 @@ function quantityChanged(event) {
 function updateCartTotal() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
-    var subTotal = 0
+    var subTotal = 0;
     for (var i = 0; i < cartRows.length; i++) {
         var cartRow = cartRows[i]
         var priceElement = cartRow.getElementsByClassName('cart-price')[0]
@@ -80,11 +83,18 @@ function updateCartTotal() {
     else
         shipping = 4.75;
     var total = Math.round((subTotal + taxesQST + taxesGST + shipping) * 100) / 100;
-    
-    document.getElementsByClassName('cart-subtotal-price')[0].innerHTML = '$' + subTotal.toFixed(2);
-    document.getElementsByClassName('cart-taxesQST-price')[0].innerHTML = '$' + taxesQST.toFixed(2);
-    document.getElementsByClassName('cart-taxesGST-price')[0].innerHTML = '$' + taxesGST.toFixed(2);
-    document.getElementsByClassName('cart-shipping-price')[0].innerHTML = '$' + shipping.toFixed(2);
-    document.getElementsByClassName('cart-total-price')[0].innerHTML = '$' + total.toFixed(2);
-    console.log(sessionStorage(total))
-}
+    window.sessionStorage.setItem("subtotal",subTotal.toFixed(2));
+    window.sessionStorage.setItem("taxesQST",taxesQST .toFixed(2));
+    window.sessionStorage.setItem("taxesGST",taxesGST.toFixed(2));
+    window.sessionStorage.setItem("shipping",shipping.toFixed(2));
+    window.sessionStorage.setItem("total",total.toFixed(2));
+
+    document.getElementsByClassName('cart-subtotal-price')[0].innerHTML = '$' + window.sessionStorage.getItem("subtotal");
+    document.getElementsByClassName('cart-taxesQST-price')[0].innerHTML = '$' + window.sessionStorage.getItem("taxesQST");
+    document.getElementsByClassName('cart-taxesGST-price')[0].innerHTML = '$' + window.sessionStorage.getItem("taxesGST");
+    document.getElementsByClassName('cart-shipping-price')[0].innerHTML = '$' + window.sessionStorage.getItem("shipping");
+    document.getElementsByClassName('cart-total-price')[0].innerHTML = '$' + window.sessionStorage.getItem("total");
+   
+    console.log(sessionStorage);
+
+}})
