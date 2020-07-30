@@ -14,7 +14,7 @@
             <link rel="icon" href="Images/FruitCartLogo.png">
         </head>
 
-        <body onload="loadAllDairyQuantity()">
+        <body onload="loadAisleQuantity('milkQuantity', 'creamQuantity', 'butterQuantity', 'cheeseQuantity'); updateAislePrice('milk', 'cream', 'butter', 'cheese');">
 
             <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
                 <a class="navbar-brand" href = "index.html">
@@ -84,10 +84,10 @@
                                 <a class="product-title" href="Milk.html">Quebon 2% M.F. Partially Skimmed Milk</a>
                             </h5>
                             <p>4L</p>
-                            <p>Price: $6.25</p>
+                            <p name = milkPrice data-price = "6.25">Price: $6.25</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class = "product-quantity ml-2 mr-2" type = "number" name = "Milk" id = "milkQuantity" placeholder="1" onchange="saveQuantity('milkQuantity')"/>
+                                <input class = "product-quantity ml-2 mr-2" type = "number" name = "Milk" id = "milkQuantity" placeholder="1" onchange="saveQuantity('milkQuantity'); updateItemPrice('milk');">
                                 <input class="add-to-cart-submit" type = "image" name = "ToCart"  src = "Images/AddToCart.png" alt="Submit Form"/>
                             </form>
                         </div>
@@ -103,10 +103,10 @@
                                 <a class="product-title" href="Creme.html">Quebon 10% M.F. Coffee Creme</a>
                             </h5>
                             <p>1L</p>
-                            <p>Price: $2.25</p>
+                            <p name = creamPrice data-price = "2.25">Price: $2.25</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class="product-quantity ml-2 mr-2" type="number" name="cream" id = "creamQuantity" onchange="saveQuantity('creamQuantity')" value="creamQuantity"
+                                <input class="product-quantity ml-2 mr-2" type="number" name="cream" id = "creamQuantity" onchange="saveQuantity('creamQuantity'); updateItemPrice('cream');" value="creamQuantity"
                                     placeholder="1" />
                                 <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                     alt="Submit Form" />
@@ -126,10 +126,10 @@
                                 <a class="product-title" href="Butter.html">Lactantia Salted Butter</a>
                             </h5>
                             <p>454g</p>
-                            <p>Price: $3.25</p>
+                            <p name = butterPrice data-price = "3.25">Price: $3.25</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class = "product-quantity ml-2 mr-2" type = "number" name = "butter" id = "butterQuantity" onchange="saveQuantity('butterQuantity')" placeholder="1"/>
+                                <input class = "product-quantity ml-2 mr-2" type = "number" name = "butter" id = "butterQuantity" onchange="saveQuantity('butterQuantity'); updateItemPrice('butter');" placeholder="1"/>
                                 <input class="add-to-cart-submit" type = "image" name = "ToCart"  src = "Images/AddToCart.png" alt="Submit Form"/>
                             </form>
                         </div>
@@ -145,10 +145,10 @@
                                 <a class="product-title" href="ShreddedCheese.html">Kraft Shredded Mild Cheddar Cheese</a>
                             </h5>
                             <p>226g</p>
-                            <p>Price: $4.49</p>
+                            <p name = cheesePrice data-price = "4.50">Price: $4.50</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class="product-quantity ml-2 mr-2" type="number" name="cheese" id = "cheeseQuantity" onchange="saveQuantity('cheeseQuantity')" placeholder="1" />
+                                <input class="product-quantity ml-2 mr-2" type="number" name="cheese" id = "cheeseQuantity" onchange="saveQuantity('cheeseQuantity'); updateItemPrice('cheese');" placeholder="1" />
                                 <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                     alt="Submit Form" />
                             </form>

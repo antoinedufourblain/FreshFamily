@@ -14,7 +14,7 @@
             <link rel="icon" href="Images/FruitCartLogo.png">
         </head>
 
-        <body onload = "loadQuantity('strawberriesQuantity')">
+        <body onload = "loadQuantity('strawberriesQuantity'); updateItemPrice('strawberries');">
 
             <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
                 <a class="navbar-brand" href = "index.html">
@@ -73,7 +73,7 @@
                     <div class="textblack" style="color: black">
                   <h5 class="mt-0">Strawberries</h5>
                     <p>Weight: 400g</p>
-                    <p>Price: $3.99</p>
+                    <p name = "strawberriesPrice" data-price="4.0">Price: $4.00</p>
                     <p>
                         <button class="btn green-button" type="button" onclick="openCollapse()">
                             More Description
@@ -92,7 +92,7 @@
                         </div>
                     </div>
                     <form class="add-to-cart">
-                        <input class = "product-quantity ml-2 mr-2" type = "number" name = "strawberries" id = "strawberriesQuantity" onchange="saveQuantity('strawberriesQuantity')" placeholder="1"/>
+                        <input class = "product-quantity ml-2 mr-2" type = "number" name = "strawberries" id = "strawberriesQuantity" onchange="saveQuantity('strawberriesQuantity'); updateItemPrice('strawberries');" placeholder="1"/>
                         <input class="add-to-cart-submit" type = "image" name = "ToCart"  src = "Images/AddToCart.png" alt="Submit Form"/>
                     </form>
                 </div>

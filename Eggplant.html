@@ -13,7 +13,7 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
             <link rel="icon" href="Images/FruitCartLogo.png">
         </head>
-        <body onload = "loadQuantity('eggplantQuantity')">
+        <body onload = "loadQuantity('eggplantQuantity'); updateItemPrice('eggplant');">
             <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
                 <a class="navbar-brand" href = "index.html">
                     <img class="main-logo" src = "Images/FruitCartLogo.png">
@@ -70,7 +70,7 @@
                     <div class="textblack" style="color: black">
                   <h5 class="mt-0">California Eggplant</h5>
                     <p>1 unit</p>
-                    <p>Price: $2.49 each</p>
+                    <p name = "eggplantPrice" data-price = "2.5">Price: $2.50 each</p>
                     <p>
                         <button class="btn green-button" type="button" onclick="openCollapse()">
                             More Description
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <form class="add-to-cart">
-                        <input class = "product-quantity ml-2 mr-2" type = "number" name = "eggplant" id = "eggplantQuantity" onchange="saveQuantity('eggplantQuantity')" placeholder="1"/>
+                        <input class = "product-quantity ml-2 mr-2" type = "number" name = "eggplant" id = "eggplantQuantity" onchange="saveQuantity('eggplantQuantity'); updateItemPrice('eggplant');" placeholder="1"/>
                         <input class="add-to-cart-submit" type = "image" name = "ToCart"  src = "Images/AddToCart.png" alt="Submit Form"/>
                     </form>
                 </div>

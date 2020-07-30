@@ -20,7 +20,7 @@
 
 </head>
 
-<body>
+<body onload="loadAisleQuantity('waterQuantity', 'juiceQuantity', 'colaQuantity', 'beerQuantity'); updateAislePrice('water', 'juice', 'cola', 'beer');">
         <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
             <a class="navbar-brand" href="index.html">
                 <img class="main-logo" src="Images/FruitCartLogo.png">
@@ -92,10 +92,10 @@
                                 <a class="product-title" href="Water.html">Eska Water</a>
                             </h5>
                             <p>20 x 500ml</p>
-                            <p>Price: $4.75</p>
+                            <p name = waterPrice data-price = "4.75">Price: $4.75</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class="product-quantity ml-2 mr-2" type="number" name="Water" value="waterQuantity"
+                                <input class="product-quantity ml-2 mr-2" type="number" name="Water" id = "waterQuantity" onchange="saveQuantity('waterQuantity'); updateItemPrice('water');" value="waterQuantity"
                                     placeholder="1" />
                                 <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                     alt="Submit Form" />
@@ -113,10 +113,10 @@
                                 <a class="product-title" href="Juice.html">Orange Juice</a>
                             </h5>
                             <p>Tropicana, 1.54 L</p>
-                            <p>Price: $3.95</p>
+                            <p name = juicePrice data-price = "3.90">Price: $3.90</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class="product-quantity ml-2 mr-2" type="number" name="Juice" value="JuiceQuantity"
+                                <input class="product-quantity ml-2 mr-2" type="number" name="Juice" id = "juiceQuantity" onchange="saveQuantity('juiceQuantity'); updateItemPrice('juice');" value="JuiceQuantity"
                                     placeholder="1" />
                                 <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                     alt="Submit Form" />
@@ -138,10 +138,10 @@
                                 <a class="product-title" href="Cola.html">Coca-Cola</a>
                             </h5>
                             <p>Soft drink, 2L</p>
-                            <p>Price: $2.50</p>
+                            <p name = colaPrice data-price = "2.5">Price: $2.50</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class="product-quantity ml-2 mr-2" type="number" name="cola" value="colaQuantity"
+                                <input class="product-quantity ml-2 mr-2" type="number" name="cola" id = "colaQuantity" onchange="saveQuantity('colaQuantity'); updateItemPrice('cola');" value="colaQuantity"
                                     placeholder="1" />
                                 <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                     alt="Submit Form" />
@@ -161,10 +161,10 @@
                                 <a class="product-title" href="Beer.html">Coors Light Beer</a>
                             </h5>
                             <p>750 ml</p>
-                            <p>Price: $3.25</p>
+                            <p name = beerPrice data-price = "3.25">Price: $3.25</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class="product-quantity ml-2 mr-2" type="number" name="Beer" value="BeerQuantity"
+                                <input class="product-quantity ml-2 mr-2" type="number" name="Beer" id = "beerQuantity" onchange="saveQuantity('beerQuantity'); updateItemPrice('beer');" value="BeerQuantity"
                                     placeholder="1" />
                                 <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                     alt="Submit Form" />
@@ -180,7 +180,7 @@
 
         <div class="whitespace1"></div>
 
-    </body>
+    
 
     <div class="whitespace2"></div>
 
@@ -188,4 +188,6 @@
         <a href="index.html"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
         <span class="navbar-icon-label name">FRESHFAMILY MARKET</span>
     </footer>
+    <script type = "text/javascript" src = "JavaScript/DianaProducts.js"></script>
+</body>
 </html>
