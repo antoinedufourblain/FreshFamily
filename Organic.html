@@ -14,7 +14,9 @@
             <link rel="icon" href="Images/FruitCartLogo.png">
         </head>
 
-        <body>
+        <body onload="document.getElementById('edamameQuantity').value = getSavedValue('edamameQuantity');
+        document.getElementById('kaleQuantity').value = getSavedValue('kaleQuantity');
+        document.getElementById('kuguaQuantity').value = getSavedValue('kuguaQuantity');"> 
 
             <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
                 <a class="navbar-brand" href = "index.html">
@@ -87,7 +89,7 @@
                                 <p>Price: $2.99</p>
                                 <p>Select Quantity:</p>
                                 <form class="add-to-cart">
-                                    <input class = "product-quantity ml-2 mr-2" type = "number" name = "Edamame" placeholder="1"/>
+                                    <input class = "product-quantity ml-2 mr-2" type = "number" name = "Edamame" id="edamameQuantity" onchange="saveValue(this)" placeholder="1"/>
                                     <input class="add-to-cart-submit" type = "image" name = "ToCart"  src = "Images/AddToCart.png" alt="Submit Form"/>
                                 </form>
                             </div>
@@ -106,7 +108,7 @@
                                 <p>Price: $2.49</p>
                                 <p>Select Quantity:</p>
                                 <form class="add-to-cart">
-                                    <input class="product-quantity ml-2 mr-2" type="number" name="kugua" value="kuguaQuantity"
+                                    <input class="product-quantity ml-2 mr-2" type="number" name="kugua" id="kuguaQuantity" onchange="saveValue(this)"
                                         placeholder="1" />
                                     <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                         alt="Submit Form" />
@@ -129,7 +131,7 @@
                                 <p>Price: $2.99</p>
                                 <p>Select Quantity:</p>
                                 <form class="add-to-cart">
-                                    <input class = "product-quantity ml-2 mr-2" type = "number" name = "kale" placeholder="1"/>
+                                    <input class = "product-quantity ml-2 mr-2" type = "number" name = "kale" id="kaleQuantity" onchange="saveValue(this)" placeholder="1"/>
                                     <input class="add-to-cart-submit" type = "image" name = "ToCart"  src = "Images/AddToCart.png" alt="Submit Form"/>
                                 </form>
                             </div>
@@ -146,5 +148,6 @@
                 <a href="index.html"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
                 <span class="navbar-icon-label name">FRESHFAMILY MARKET</span>
             </footer>
+            <script type = "text/javascript" src = "JavaScript/AntoineProducts.js"></script>
         </body>
     </html>

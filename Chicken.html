@@ -19,7 +19,7 @@
     <link rel="icon" href="Images/FruitCartLogo.png">
 </head>
 
-<body>
+<body onload="document.getElementById('chickenQuantity').value = getSavedValue('chickenQuantity');">
     <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
         <a class="navbar-brand" href="index.html">
             <img class="main-logo" src="Images/FruitCartLogo.png">
@@ -101,12 +101,13 @@
             </div>
         </div>
         <form class="add-to-cart">
-            <input class = "product-quantity ml-2 mr-2" type = "number" name = "chicken" placeholder="1"/>
+            <input class = "product-quantity ml-2 mr-2" type = "number" name = "chicken" id="chickenQuantity"  onchange="saveValue(this)" placeholder="1"/>
             <input class="add-to-cart-submit" type = "image" name = "ToCart"  src = "Images/AddToCart.png" alt="Submit Form"/>
         </form>
         </div>
     </div>
     <div class = "whitespace2"></div>
+    <script type = "text/javascript" src = "JavaScript/AntoineProducts.js"></script>
 </body>
 
 <footer>
