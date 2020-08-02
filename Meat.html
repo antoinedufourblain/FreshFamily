@@ -19,11 +19,15 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
     <link rel="icon" href="Images/FruitCartLogo.png">
+    
 </head>
 
-<body>
+<body onload= "document.getElementById('baconQuantity').value = getSavedValue('baconQuantity');
+    document.getElementById('chickenQuantity').value = getSavedValue('chickenQuantity');
+    document.getElementById('sausageQuantity').value = getSavedValue('sausageQuantity');
+    document.getElementById('beefQuantity').value = getSavedValue('beefQuantity');">
 
-
+    <script type = "text/javascript" src = "JavaScript/AntoineProducts.js"></script>
     <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
         <a class="navbar-brand" href="index.html">
             <img class="main-logo" src="Images/FruitCartLogo.png">
@@ -94,7 +98,7 @@
                         <p>Price: $7.25/ unit</p>
                         <p>Select Quantity:</p>
                         <form class="add-to-cart">
-                            <input class="product-quantity ml-2 mr-2" type="number" name="Chicken" value="ChickenQuantity"
+                            <input class="product-quantity ml-2 mr-2" type="number" name="Chicken" id="chickenQuantity"  onchange="saveValue(this)"
                                 placeholder="1" />
                             <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                 alt="Submit Form" />
@@ -115,7 +119,7 @@
                             <p>Price: $15.45/ kg</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class="product-quantity ml-2 mr-2" type="number" name="Beef" value="BeefQuantity"
+                                <input class="product-quantity ml-2 mr-2" type="number" name="Beef" id="beefQuantity" value="beefQuantity" onchange="saveValue(this)"
                                     placeholder="1" />
                                 <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                     alt="Submit Form" />
@@ -140,7 +144,7 @@
                         <p>Price: $4.45</p>
                         <p>Select Quantity:</p>
                         <form class="add-to-cart">
-                            <input class="product-quantity ml-2 mr-2" type="number" name="Sausage" value="SausagekQuantity"
+                            <input class="product-quantity ml-2 mr-2" type="number" name="Sausage" id="sausageQuantity" value="sausageQuantity" onchange="saveValue(this)"
                                 placeholder="1" />
                             <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                 alt="Submit Form" />
@@ -163,7 +167,7 @@
                         <p>Price: $6.45</p>
                         <p>Select Quantity:</p>
                         <form class="add-to-cart">
-                            <input class="product-quantity ml-2 mr-2" type="number" name="Bacon" value="BaconQuantity"
+                            <input class="product-quantity ml-2 mr-2" type="number" name="Bacon" id="baconQuantity" value="baconQuantity" onchange="saveValue(this)"
                                 placeholder="1" />
                             <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                 alt="Submit Form" />
@@ -176,13 +180,15 @@
         <div class="greyspace"></div>
     </div>
     <div class="whitespace1"></div>
-</body>
-
-<div class="whitespace2"></div>
+    <div class="whitespace2"></div>
 
 <footer>
     <a href="index.html"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
     <span class= "name">FRESHFAMILY MARKET</span>
 </footer>
+    
+</body>
+
+
 
 </html>

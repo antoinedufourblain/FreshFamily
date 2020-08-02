@@ -13,7 +13,8 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         </head>
 
-        <body onload="loadAllFruitAndVegetablesQuantity(); loadPackageType('avocadoQuantityType')">
+        <body onload="loadAisleQuantity('avocadoQuantity', 'eggplantQuantity', 'strawberriesQuantity', 'zucchiniQuantity');
+         loadPackageType('avocadoQuantityType'); displayAvocadoPriceOnload(); updateItemPrice('eggplant'); updateItemPrice('zucchini'); updateItemPrice('strawberries');">
 
             <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
                 <a class="navbar-brand" href = "index.html">
@@ -84,16 +85,16 @@
                                 <a class="product-title" href="avocado.html">Avocado</a>
                             </h5>
                             <p>Weight: varies</p>
-                            <p>Price: $1.49 each</p>
+                            <p name = "avocadoPrice">Price: $1.49 each or $6.99 for 6</p>
                             <p>Select Quantity:</p>
                             <form class="avocadoCart">
                                 <h6 style = "color:black; font-style:italic">Please select unit type</h6>
-                                <input type = "radio" name = "quantityType" id = "SingleUnit" value = "SingleUnit" onchange="savePackageType('SingleUnit', 'avocadoQuantityType')">
+                                <input type = "radio" name = "quantityType" id = "SingleUnit" value = "SingleUnit" onchange="savePackageType('SingleUnit', 'avocadoQuantityType'); displayAvocadoPriceOnload()">
                                 <label for = "SingleUnit">Single Unit</label><br>
-                                <input type = "radio" name = "quantityType" id = "6pack" value = "6pack" onchange="savePackageType('6pack', 'avocadoQuantityType')">
+                                <input type = "radio" name = "quantityType" id = "6pack" value = "6pack" onchange="savePackageType('6pack', 'avocadoQuantityType'); displayAvocadoPriceOnload()">
                                 <label for = "6pack">Package of 6</label><br>
                                 <div class = "add-to-cart">
-                                    <input class = "product-quantity ml-2 mr-2" type = "number" name = "avocado" id = "avocadoQuantity" onchange="saveQuantity('avocadoQuantity')" placeholder="1"/>
+                                    <input class = "product-quantity ml-2 mr-2" type = "number" name = "avocado" id = "avocadoQuantity" onchange="saveQuantity('avocadoQuantity'); displayAvocadoPriceOnload()" placeholder="1"/>
                                     <input class="add-to-cart-submit" type = "image" name = "ToCart"  src = "Images/AddToCart.png" alt="Submit Form"/>
                                 </div>
                             </form>
@@ -110,10 +111,10 @@
                                 <a class="product-title" href="Eggplant.html">California Eggplant</a>
                             </h5>
                             <p>1 unit</p>
-                            <p>Price: $2.49 each</p>
+                            <p name = eggplantPrice data-price = "2.50">Price: $2.50 each</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class="product-quantity ml-2 mr-2" type="number" name="eggplant" id = "eggplantQuantity" onchange="saveQuantity('eggplantQuantity')" value="eggplantQuantity"
+                                <input class="product-quantity ml-2 mr-2" type="number" name="eggplant" id = "eggplantQuantity" onchange="saveQuantity('eggplantQuantity'); updateItemPrice('eggplant');" value="eggplantQuantity"
                                     placeholder="1" />
                                 <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                     alt="Submit Form" />
@@ -133,10 +134,10 @@
                                 <a class="product-title" href="Strawberries.html">Strawberries</a>
                             </h5>
                             <p>400g</p>
-                            <p>Price: $3.99 per pack</p>
+                            <p name = strawberriesPrice data-price = "4.00">Price: $4.00 per pack</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class = "product-quantity ml-2 mr-2" type = "number" name = "strawberries" id = "strawberriesQuantity" onchange="saveQuantity('strawberriesQuantity')" placeholder="1"/>
+                                <input class = "product-quantity ml-2 mr-2" type = "number" name = "strawberries" id = "strawberriesQuantity" onchange="saveQuantity('strawberriesQuantity'); updateItemPrice('strawberries');" placeholder="1"/>
                                 <input class="add-to-cart-submit" type = "image" name = "ToCart"  src = "Images/AddToCart.png" alt="Submit Form"/>
                             </form>
                         </div>
@@ -152,10 +153,10 @@
                                 <a class="product-title" href="Zucchini.html">Zucchini</a>
                             </h5>
                             <p>1 unit</p>
-                            <p>Price: $0.75 each</p>
+                            <p name = zucchiniPrice data-price = "0.75">Price: $0.75 each</p>
                             <p>Select Quantity:</p>
                             <form class="add-to-cart">
-                                <input class="product-quantity ml-2 mr-2" type="number" name="zucchini" id = "zucchiniQuantity" onchange="saveQuantity('zucchiniQuantity')" value="creamQuantity"
+                                <input class="product-quantity ml-2 mr-2" type="number" name="zucchini" id = "zucchiniQuantity" onchange="saveQuantity('zucchiniQuantity'); updateItemPrice('zucchini');" value="creamQuantity"
                                     placeholder="1" />
                                 <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
                                     alt="Submit Form" />

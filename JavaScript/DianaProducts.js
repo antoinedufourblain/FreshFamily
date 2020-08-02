@@ -21,18 +21,42 @@ function displayAvocadoPriceOnload()  {
 
 // updating total price for avocado
 function updateAvocadoPrice()  {
-    var quantity = window.localStorage.getItem("avocadoQuantity");
-    if (quantity <= 0) {
-        alert("Please enter a valid quantity (1 or more)");
+    var quantity = window.sessionStorage.getItem("avocadoQuantity");
+    if (isNaN(quantity) || quantity <= 0) {
+        quantity = 1
         document.getElementById("avocadoQuantity").value = 1;
-        window.localStorage.setItem("avocadoQuantity", 1);
-        quantity.focus();
+        window.sessionStorage.setItem("avocadoQuantity", 1);
     }
-    if (window.localStorage.getItem("avocadoQuantityType") == "SingleUnit")
+    if (window.sessionStorage.getItem("avocadoQuantityType") == "SingleUnit")
         avocadoTotalPrice = avocadoSingle * quantity;
-    if (window.localStorage.getItem("avocadoQuantityType") == "6pack")
+    if (window.sessionStorage.getItem("avocadoQuantityType") == "6pack")
         avocadoTotalPrice = avocado6pack * quantity;
 }
+
+// OTHER PRODUCTS //
+
+// updating item price
+function updateItemPrice(item)  {
+        var priceElem = document.getElementsByName(item + "Price")[0];
+        var price = priceElem.dataset.price;
+        var quantity = window.sessionStorage.getItem(item + "Quantity");
+        if (isNaN(quantity) || quantity <= 0) {
+            quantity = 1
+            document.getElementById(item + "Quantity").value = 1;
+            window.sessionStorage.setItem(item + "Quantity", 1);
+        }
+        priceElem.innerHTML = "Price: $" + price*quantity;
+    
+}
+
+// updating prices for all items in isle
+function updateAislePrice(item1, item2, item3, item4)   {
+    updateItemPrice(item1);
+    updateItemPrice(item2);
+    updateItemPrice(item3);
+    updateItemPrice(item4);
+}
+
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 // SAVING AND STORING PRODUCT TYPE AND QUANTITY //
@@ -40,44 +64,36 @@ function updateAvocadoPrice()  {
 
 // loading a product quantity from session storage
 function loadQuantity(id)  {
-    document.getElementById(id).value = window.localStorage.getItem(id);
+    document.getElementById(id).value = window.sessionStorage.getItem(id);
 }
 
-// calling loadQuantity of all dairy products upon reloading page
-function loadAllDairyQuantity() {
-    loadQuantity('milkQuantity');
-    loadQuantity('creamQuantity');
-    loadQuantity('butterQuantity');
-    loadQuantity('cheeseQuantity');
-}
+// calling loadQuantity of all aisle products upon reloading page
+function loadAisleQuantity(a, b, c, d) {
 
-// calling loadQuantity of all friot avd vegetables products upon reloading page
-function loadAllFruitAndVegetablesQuantity() {
-
-    loadQuantity('avocadoQuantity');
-    loadQuantity('eggplantQuantity');
-    loadQuantity('strawberriesQuantity');
-    loadQuantity('zucchiniQuantity');
+    loadQuantity(a);
+    loadQuantity(b);
+    loadQuantity(c);
+    loadQuantity(d);
 }
 
 
 // Saving session changes in quantity
 function saveQuantity(id)  {
     var quantity = document.getElementById(id).value;
-    window.localStorage.setItem(id, quantity);
+    window.sessionStorage.setItem(id, quantity);
 }
 
 // Saving session choices for package type
 function savePackageType(id, key)  {
     var packageType = document.getElementById(id).value;
-    window.localStorage.setItem(key, packageType);
+    window.sessionStorage.setItem(key, packageType);
 }
 
  // Loading a package type from session storage
 function loadPackageType(key) {
-    if (window.localStorage.getItem(key) == "SingleUnit")  
+    if (window.sessionStorage.getItem(key) == "SingleUnit")  
         document.getElementById("SingleUnit").checked=true;
-    if (window.localStorage.getItem(key) == "6pack")
+    if (window.sessionStorage.getItem(key) == "6pack")
         document.getElementById("6pack").checked=true;
 }
 
