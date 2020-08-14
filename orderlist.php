@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    if (!isset($_SESSION['admin']) || $_SESSION['admin'] == "" || $_SESSION['admin'] != 1)  {
+        header('location: index.html');
+    }
+?>
 <html>
 
 <head>
@@ -26,7 +31,7 @@
             <span class="navbar-icon-label">FRESHFAMILY MARKET</span>
         </a>
         <div class="navbar-right">
-            <a href="SignIn.html">
+            <a href="SignIn.php">
                 <img class="icons" src="Images/SignInIconOnly.png">
                 <span class="navbar-icon-label">Sign Out</span>
             </a>
@@ -70,9 +75,9 @@
 
     <div class="back-end-nav-title">
         <nav id="back-end-nav">
-            <a href="userlist.html">User List</a>
-            <a href="productlist.html">Product List</a>
-            <a href="orderlist.html">Order List</a>
+            <a href="userlist.php">User List</a>
+            <a href="productlist.php">Product List</a>
+            <a href="orderlist.php">Order List</a>
         </nav>
 
         <div class="back-end-title">
@@ -97,7 +102,7 @@
         </div>
         <div class="row user-row">
             <div class="col-sm-1">
-                <a href="editorder.html"><input class="btn red-button" type="button" value="Edit"></a>
+                <a href="editorder.php"><input class="btn red-button" type="button" value="Edit"></a>
             </div>
             <div class="col-sm-2">276</div>
             <div class="col-sm-2">Diana Afanasyev</div>
@@ -112,7 +117,7 @@
 
         <div class="row user-row">
             <div class="col-sm-1">
-                <a href="editorder.html"><input class="btn red-button" type="button" value="Edit"></a>
+                <a href="editorder.php"><input class="btn red-button" type="button" value="Edit"></a>
             </div>
             <div class="col-sm-2">275</div>
             <div class="col-sm-2">John Smith</div>
@@ -125,7 +130,7 @@
 
         </div>
         <div class="row user-row">
-            <div class="col-sm-1"><a href="editorder.html"><input class="btn red-button" type="button" value="Edit"></a>
+            <div class="col-sm-1"><a href="editorder.php"><input class="btn red-button" type="button" value="Edit"></a>
             </div>
             <div class="col-sm-2">275</div>
             <div class="col-sm-2">Jane Carpenter</div>
@@ -252,7 +257,7 @@
         </div>
     </div>
 
-    <a class = "ml-3 left-button" href="editorder.html"><input class = "btn red-button" type = "button" value = "Add Order"></a>
+    <a class = "ml-3 left-button" href="editorder.php"><input class = "btn red-button" type = "button" value = "Add Order"></a>
     <a class = "center-button"><input class = "btn red-button" type = "button" value = "Save"></a>
 
 

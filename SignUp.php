@@ -1,4 +1,82 @@
-<!DOCTYPE html>
+<?php
+    // If all the required fields have been filled
+    if (isset($_POST["email"]) && $_POST["email"]!="" && isset($_POST["password"]) && $_POST["password"]!="" && isset($_POST["confirmPassword"]) && $_POST["confirmPassword"]!="" 
+    && isset($_POST["firstName"]) && $_POST["firstName"]!="" && isset($_POST["lastName"]) && $_POST["lastName"]!="" && isset($_POST["address"]) && $_POST["address"]!=""  
+    && isset($_POST["city"]) && $_POST["city"]!="" && isset($_POST["province"]) && $_POST["province"]!="" && isset($_POST["postalCode"]) && $_POST["postalCode"]!="" 
+    && isset($_POST["phone"]) && $_POST["phone"]!="" )
+    {
+        // Assigning filled fields to variables for convenience
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $password2 = $_POST["confirmPassword"];
+        $first = $_POST["firstName"];
+        $last = $_POST["lastName"];
+        $address = $_POST["address"];
+        $city = $_POST["city"];
+        $postalCode = $_POST["postalCode"];
+        $phone = $_POST["phone"];
+        
+        // Regex for valid inputs        
+        $validPassword = '/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/';
+        $validPostalCode = '/^[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1} *\d{1}[A-Z]{1}\d{1}$/';
+        $validPhone = '/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/';
+
+        // Boooleans for message display
+        $invalidEmail = false;
+        $invalidPassword = false;
+        $invalidPostalCode = false;
+        $invalidPhone = false;
+        $exists = false;
+        $registered = false;
+        $emptyFields = false;
+    
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $invalidEmail = true;
+        }
+        // Checking if passwords match
+        elseif ($password!=$password2 || !preg_match($validPassword, $password)) {
+            $invalidPassword = true;
+        }
+        // Checking for invalid postal code
+        elseif (!preg_match($validPostalCode, $postalCode)) {
+            $invalidPostalCode = true;
+        }
+        // Checking if phone number is valid
+        elseif (!preg_match($validPhone, $phone))  {
+            $invalidPhone = true;
+        }
+        // If all fields are valid
+        else {
+        
+            // check for existing user
+            $file=fopen("users.txt","r");
+            while(!feof($file))
+            {
+                $line = fgets($file);
+                $array = explode(";",$line);
+                if(trim($array[0]) == $_POST['email'])
+                {
+                    $exists=true;
+                    break;
+                }
+            }
+            fclose($file);
+
+            // Display message if user exists
+            if(!$exists) {
+                $file = fopen("users.txt", "a+");
+                fputs($file,"\r\n".$_POST["email"].";".$_POST["password"].";".$_POST["firstName"].";".$_POST["lastName"].";".$_POST["address"].";"
+                .$_POST["apartment"].";".$_POST["city"].";".$_POST["province"].";".$_POST["postalCode"].";".$_POST["phone"].";"."user");
+                fclose($file);
+                $registered = true;
+                header("refresh:5; URL=SignIn.php");      
+            }
+        }
+    }
+    else  {
+        $emptyFields = true;
+    }
+?>
     <html>
         <head>
             <Title>Sign Up</Title>
@@ -19,6 +97,36 @@
         </head>
 
         <body>
+            <?php
+                // Message if fields are empty
+                if ($emptyFields)  {
+                    echo '<h2>Please fill all mandatory fields.</h2>';
+                }
+                // Message if the entered e-mail is invalid
+                elseif ($invalidEmail)  {
+                    echo '<h2> Invalid e-mail address. Please enter a valid e-mail address. </h2>';
+                }
+                // Message if the entered password is invalid
+                elseif ($invalidPassword)  {
+                    echo '<h2>Invalid password or passwords not matching. Please re-enter your password</h2>';
+                }
+                // Message if the entered postal code is invalid
+                elseif ($invalidPostalCode)  {
+                    echo '<h2> Invalid postal code. Postal code must be in upper case with no spaces. E.g. H1X2Y3. Please try again</h2>';
+                }
+                // Message if the entered phone number is invalid
+                elseif ($invalidPhone)  {
+                    echo '<h2>Invalid phone number. Please enter a number in a 000-000-0000 format</h2>';
+                }
+                // Message if the user already exists
+                elseif ($exists)  {
+                    echo '<h2> This e-mail address is already registered. Please log in or register using a different e-mail address.</h3>';
+                }
+                // Message if the user has been registered
+                elseif ($registered)  {
+                    echo '<h2>You have been successfully registered. Please proceed to log in. Redirecting...</h2>';
+                }
+            ?>
             <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
                 <a class="navbar-brand" href = "index.html">
                     <img class="main-logo" src = "Images/FruitCartLogo.png">
@@ -29,7 +137,7 @@
                         <img class = "icons" src = "Images/AddToCart.png">
                         <span class="navbar-icon-label mr-4">My Cart</span>
                     </a>
-                    <a href = "SignIn.html">
+                    <a href = "SignIn.php">
                         <img class = "icons" src = "Images/SignInIconOnly.png">
                         <span class="navbar-icon-label">Sign In</span>
                     </a>
@@ -72,26 +180,26 @@
 
             <div class = "sign-in sign-up">
                 <h2>SIGN UP</h2>
-                <form>
+                <form action = "" method = "post">
                     <div class="account-personal-info">
                         <div id = "account">
                             <h4>Account <br>Information</h4>
                             <label for="e-mail">E-mail Address</label>
-                            <input type = "text" name = "e-mail" id = "email">
+                            <input type = "text" name = "email" id = "email" >
                             <label for="password" id = "password-label">Password</label>
                             <div class = "comment">*must contain at least 8 characters with at least one digit</div>
-                            <input type = "password" name = "password" id = "psw" onchange = "validPassword1()">
+                            <input type = "password" name = "password" id = "psw">
                             <label for="confirm-password">Confirm Password</label>
-                            <input type = "password" name = "confirm-password" id = "confirm-password" onchange="validPassword2()">
+                            <input type = "password" name = "confirmPassword" id = "confirm-password">
                         </div>
                         <div id = "personal-info">
                             <h4>Personal <br>Information</h4>
                             <label for="first-name">First Name</label>
-                            <input type = "text" name = "first-name" id="first-name">
+                            <input type = "text" name = "firstName" id="first-name">
                             <label for="last-name">Last Name</label>
-                            <input type = "text" name = "last-name" id="last-name">
+                            <input type = "text" name = "lastName" id="last-name">
                             <label for="street-address">Street Address (eg. 218 York Avenue)</label>
-                            <input type = "text" name = "street-address" id="street-address">
+                            <input type = "text" name = "address" id="street-address">
                             <label for="apartment">Apartment</label>
                             <input type = "number" name = "apartment" id="apartment"  placeholder = "(Optional)">
                             <label for="city">City</label>
@@ -114,16 +222,15 @@
                                 <option value = "Nunavut">Nunavut</option>
                             </select>
                             <label for="postal-code">Postal Code</label>
-                            <input type = "text" name = "postal-code" id="postal-code">
+                            <input type = "text" name = "postalCode" id="postal-code">
                             <label for="phone-number">Phone Number</label>
-                            <input type = "text" name = "phone-number" id = "phone-number" placeholder = "e.g. (514)-999-9999">
+                            <input type = "text" name = "phone" id = "phone-number" placeholder = "e.g. 514-999-9999">
                         </div>
                     </div>
                     <div class = "centered-submit">
                         <input type = "submit" value = "CREATE AN ACCOUNT" onclick = "register()">
                         <input type = "reset" value = "RESET">
                     </div>
-                    <script type="text/javascript" src="JavaScript/registration.js"></script>
                 </form>
             </div>
             <div class="whitespace2"></div>
