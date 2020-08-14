@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    if (!isset($_SESSION['admin']) || $_SESSION['admin'] == "" || $_SESSION['admin'] != 1)  {
+        header('location: index.html');
+    }
+?>
 <html>
 
 <head>
@@ -27,7 +32,7 @@
             <span class="navbar-icon-label">FRESHFAMILY MARKET</span>
         </a>
         <div class="navbar-right">
-            <a href="SignIn.html">
+            <a href="SignIn.php">
                 <img class="icons" src="Images/SignInIconOnly.png">
                 <span class="navbar-icon-label">Sign Out</span>
             </a>
@@ -71,9 +76,9 @@
 
     <div class="back-end-nav-title">
         <nav id="back-end-nav">
-            <a href="userlist.html">User List</a>
-            <a href="productlist.html">Product List</a>
-            <a href="orderlist.html">Order List</a>
+            <a href="userlist.php">User List</a>
+            <a href="productlist.php">Product List</a>
+            <a href="orderlist.php">Order List</a>
         </nav>
 
         <div class="back-end-title">
@@ -101,7 +106,7 @@
             <div class="col-sm-5">544-380-66</div>
             <div class="col-sm-2">10</div>
             <div class="col-sm-2">
-                <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
         </div>
@@ -110,7 +115,7 @@
             <div class="col-sm-5">544-381-66</div>
             <div class="col-sm-2">12</div>
             <div class="col-sm-2">
-                <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
         </div>
@@ -119,7 +124,7 @@
             <div class="col-sm-5">544-382-66</div>
             <div class="col-sm-2">5</div>
             <div class="col-sm-2">
-                <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
         </div>
@@ -128,7 +133,7 @@
             <div class="col-sm-5">544-279-65</div>
             <div class="col-sm-2">5</div>
             <div class="col-sm-2">
-                <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
         </div>
@@ -148,7 +153,7 @@
             <div class="col-sm-5">684-324-12</div>
             <div class="col-sm-2">10</div>
             <div class="col-sm-2">
-                <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
         </div>
@@ -157,7 +162,7 @@
             <div class="col-sm-5">684-564-61</div>
             <div class="col-sm-2">12</div>
             <div class="col-sm-2">
-                <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
         </div>
@@ -166,7 +171,7 @@
             <div class="col-sm-5">684-723-32</div>
             <div class="col-sm-2">8</div>
             <div class="col-sm-2">
-                <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
         </div>
@@ -175,7 +180,7 @@
             <div class="col-sm-5">684-723-32</div>
             <div class="col-sm-2">15</div>
             <div class="col-sm-2">
-                <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
         </div>
@@ -195,7 +200,7 @@
             <div class="col-sm-5">544-389-65</div>
             <div class="col-sm-2">15</div>
             <div class="col-sm-2">
-                <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
         </div>
@@ -204,7 +209,7 @@
             <div class="col-sm-5">544-389-66</div>
             <div class="col-sm-2">7</div>
             <div class="col-sm-2">
-                <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
         </div>
@@ -213,7 +218,7 @@
             <div class="col-sm-5">544-379-65</div>
             <div class="col-sm-2">7</div>
             <div class="col-sm-2">
-                <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
         </div>
@@ -222,7 +227,7 @@
             <div class="col-sm-5">544-369-65</div>
             <div class="col-sm-2">7</div>
             <div class="col-sm-2">
-                <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
         </div>
@@ -241,7 +246,7 @@
                 <div class="col-sm-5">799-455-72</div>
                 <div class="col-sm-2">6</div>
                 <div class="col-sm-2">
-                    <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                    <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                     <input class="btn red-button" type="button" value="Delete">
                 </div>
             </div>
@@ -250,7 +255,7 @@
                 <div class="col-sm-5">799-343-11</div>
                 <div class="col-sm-2">4</div>
                 <div class="col-sm-2">
-                    <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                    <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                     <input class="btn red-button" type="button" value="Delete">
                 </div>
             </div>
@@ -259,7 +264,7 @@
                 <div class="col-sm-5">799-247-27</div>
                 <div class="col-sm-2">8</div>
                 <div class="col-sm-2">
-                    <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                    <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                     <input class="btn red-button" type="button" value="Delete">
                 </div>
             </div>
@@ -279,7 +284,7 @@
                     <div class="col-sm-5">233-673-45</div>
                     <div class="col-sm-2">5</div>
                     <div class="col-sm-2">
-                        <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                        <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                         <input class="btn red-button" type="button" value="Delete">
                     </div>
                 </div>
@@ -288,7 +293,7 @@
                     <div class="col-sm-5">233-568-15</div>
                     <div class="col-sm-2">8</div>
                     <div class="col-sm-2">
-                        <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                        <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                         <input class="btn red-button" type="button" value="Delete">
                     </div>
                 </div>
@@ -297,7 +302,7 @@
                     <div class="col-sm-5">233-348-92</div>
                     <div class="col-sm-2">17</div>
                     <div class="col-sm-2">
-                        <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                        <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                         <input class="btn red-button" type="button" value="Delete">
                     </div>
                 </div>
@@ -306,7 +311,7 @@
                     <div class="col-sm-5">233-545-78</div>
                     <div class="col-sm-2">20</div>
                     <div class="col-sm-2">
-                        <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                        <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                         <input class="btn red-button" type="button" value="Delete">
                     </div>
                 </div>
@@ -325,7 +330,7 @@
                         <div class="col-sm-5">086-223-55</div>
                         <div class="col-sm-2">6</div>
                         <div class="col-sm-2">
-                            <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                            <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                             <input class="btn red-button" type="button" value="Delete">
                         </div>
                     </div>
@@ -334,7 +339,7 @@
                         <div class="col-sm-5">086-250-70</div>
                         <div class="col-sm-2">3</div>
                         <div class="col-sm-2">
-                            <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                            <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                             <input class="btn red-button" type="button" value="Delete">
                         </div>
                     </div>
@@ -343,12 +348,12 @@
                         <div class="col-sm-5">086-753-09</div>
                         <div class="col-sm-2">6</div>
                         <div class="col-sm-2">
-                            <a href="productedit.html"><input class="btn red-button" type="button" value="Edit"></a>
+                            <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                             <input class="btn red-button" type="button" value="Delete">
                         </div>
                     </div>
                 </div>
-                <a href="productedit.html">
+                <a href="productedit.php">
                     <div class="center-button"><input class="btn red-button" type="button" value="Add a Product"></div>
                 </a>
             </div>

@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    if (!isset($_SESSION['admin']) || $_SESSION['admin'] == "" || $_SESSION['admin'] != 1)  {
+        header('location: index.html');
+    }
+?>
     <html>
         <head>
             <Title>Edit Product</Title>
@@ -25,7 +30,7 @@
                     <span class="navbar-icon-label">FRESHFAMILY MARKET</span>
                 </a>
                 <div class="navbar-right">
-                    <a href = "SignIn.html">
+                    <a href = "SignIn.php">
                         <img class = "icons" src = "Images/SignInIconOnly.png">
                         <span class="navbar-icon-label">Sign Out</span>
                     </a>
@@ -68,9 +73,9 @@
             
             <div class = "back-end-nav-title">
                 <nav id = "back-end-nav">
-                    <a href="userlist.html">User List</a>
-                    <a href="productlist.html">Product List</a>
-                    <a href="orderlist.html">Order List</a>
+                    <a href="userlist.php">User List</a>
+                    <a href="productlist.php">Product List</a>
+                    <a href="orderlist.php">Order List</a>
                 </nav>
 
                 <div class = "back-end-title">

@@ -1,4 +1,74 @@
-<!DOCTYPE html>
+<?php
+    // Initializing booleans used to print messages
+    $emptyField = false;
+    $emailNotFound = true;
+    $noMatchPasswords = false;
+    $loginMessage = false;
+    
+    // If one of the fields is empty
+    if (!isset($_POST["email"]) || $_POST["email"]== "" || !isset($_POST["password"]) || $_POST["password"]== "") {
+        $emptyField = true;
+    }
+
+    // If fields have been filled
+    else {
+
+        // Setting input to vars for convenience
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+
+        // Reading user file
+        $file = fopen("users.txt", "r");
+        $admin = false;
+        
+
+        while (!feof($file))  {
+            $line = fgets($file);
+            $data = explode(";", $line);
+
+            // If the e-mail is a match
+            if (trim($data[0]) == $email)  {
+                $emailNotFound = false;
+
+                // If passwords are the same
+                if (trim($data[1])== $password)  {
+                    session_start();
+                    
+                    // If admin
+                    if (trim($data[10]) == "admin")  {
+                        $loginMessage = true;
+                        $admin = true;
+                        $_SESSION['user'] = $email;
+                        $_SESSION['admin'] = $admin;
+                        $_SESSION['firstName'] = $data[2];
+                        header("refresh:5; URL=userlist.php");
+                        break;
+                    }
+
+                    // If not admin
+                    else {
+                        $loginMessage = true;
+                        $_SESSION['user'] = $email;
+                        $_SESSION['admin'] = $admin;
+                        $_SESSION['firstName'] = $data[2];
+                        header("refresh:5; URL=index.html");
+                        break;
+                    }
+                }
+                // If passwords are not the same
+                else  {
+                    $noMatchPasswords = true;
+                    break;
+                } 
+            }
+            // If current e-mail isn't a match
+            else  {
+                continue;   
+            }
+        }
+        fclose($file);
+    }
+?>
     <html>
         <head>
             <Title>Sign In</Title>
@@ -9,6 +79,24 @@
             <link rel="icon" href="Images/FruitCartLogo.png">
         </head>
         <body>
+            <?php 
+                // Printing message if one of the fields is empty
+                if ($emptyField)  {
+                    echo '<h2>Please enter a valid E-mail address and password</h2>';
+                }
+                // Printing message if the entered e-mail cannot be found
+                else if ($emailNotFound)  {
+                    echo '<h2>No account found with this username. Please try again or click register for a new account</h2>';
+                }
+                // Printing message if the password does not match the username
+                else if ($noMatchPasswords)  {
+                    echo '<h2>Incorrect password. Please try again</h2>';
+                }
+                // Printing a message if login was successful
+                else if ($loginMessage) {
+                    echo '<h2>Welcome back, '.$data[2].'! Redirecting...</h2>';
+                }
+            ?>
             <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
                 <a class="navbar-brand" href = "index.html">
                     <img class="main-logo" src = "Images/FruitCartLogo.png">
@@ -58,7 +146,7 @@
 
             <div class = "sign-in">
                 <h2 class = "sign-in-header">Sign In</h2>
-                <form>
+                <form action = "" method = "post">
                     <p>E-mail</p>
                     <input type = "text" name = "email" id = "email">    
                     <p>Password<p>
@@ -66,7 +154,7 @@
                     <br>
                     <input onclick = "logIn()" type = "submit" id = "log-in">
                     <button type = "button" onclick="location.href = 'RecoverPassword.html';">Forgot Password</button>
-                    <p>New here? <a href = "SignUp.html">Click here to sign up</a></p> 
+                    <p>New here? <a href = "SignUp.php">Click here to sign up</a></p> 
                     <script type = "text/javascript"  src = "JavaScript/registration.js"></script>
                 </form>
             </div>

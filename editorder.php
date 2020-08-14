@@ -1,7 +1,12 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    if (!isset($_SESSION['admin']) || $_SESSION['admin'] == "" || $_SESSION['admin'] != 1)  {
+        header('location: index.html');
+    }
+?>
     <html>
         <head>
-            <Title>EDIT USER</Title>
+            <Title>Edit Order</Title>
             <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
                 integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -25,7 +30,7 @@
                     <span class="navbar-icon-label">FRESHFAMILY MARKET</span>
                 </a>
                 <div class="navbar-right">
-                    <a href = "SignIn.html">
+                    <a href = "SignIn.php">
                         <img class = "icons" src = "Images/SignInIconOnly.png">
                         <span class="navbar-icon-label">Sign Out</span>
                     </a>
@@ -68,81 +73,73 @@
             
             <div class = "back-end-nav-title">
                 <nav id = "back-end-nav">
-                    <a href="userlist.html">User List</a>
-                    <a href="productlist.html">Product List</a>
-                    <a href="orderlist.html">Order List</a>
+                    <a href="userlist.php">User List</a>
+                    <a href="productlist.php">Product List</a>
+                    <a href="orderlist.php">Order List</a>
                 </nav>
 
                 <div class = "back-end-title">
-                    <h1>EDIT USER</h1>
+                    <h1>EDIT ORDER</h1>
                 </div>
             </div>
 
             <div class = "back-end-title-alt">
-                <h1>EDIT USER</h1>
+                <h1>EDIT ORDER</h1>
             </div>
 
             <div class = "sign-in sign-up edit-user">
-                <h2>EDIT USER</h2>
+                <h2>EDIT ORDER</h2>
+            
+                <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-dark" >
+                      <tr>
+                        <th scope="col" style="background-color: #990000;">#</th>
+                        <th scope="col" style="background-color: #990000;">Item</th>
+                        <th scope="col" style="background-color: #990000;">Quantity</th>
+                        <th scope="col" style="background-color: #990000;">Price</th>
+                        <th scope="col" style="background-color: #990000;"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Chicken Thighs</td>
+                        <td><input class = "product-quantity ml-2 mr-2" type = "number" name = "chicken" placeholder="1"/></td>
+                        <td><input type="number" id="itemprice" name="itemprice" placeholder="$17.25" style=" width: 70px;">
+                        </td>
+                        <td><button class="btn btn-danger" type="cartbutton">X</button></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Avocado</td>
+                        <td><input class = "product-quantity ml-2 mr-2" type = "number" name = "avocado" placeholder="1"/></td>
+                        <td><input type="number" id="itemprice" name="itemprice" placeholder="$3.98" style="width: 70px;"></td>
+                        <td><button class="btn btn-danger" type="cartbutton">X</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Strawberries</td>
+                        <td><input class = "product-quantity ml-2 mr-2" type = "number" name = "avocado" placeholder="1"/></td>
+                        <td><input type="number" id="itemprice" name="itemprice" placeholder="$4.99" style=" width: 70px;">
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" type="cartbutton">X</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
                 <form>
-                    <div class="account-personal-info">
-                        <div id = "account">
-                            <h4>Account <br>Information</h4>
-                            <label for="e-mail">E-mail Address</label>
-                            <input type = "text" name = "e-mail" id = "e-mail" value = "jane.smith@yahoo.com">
-                            <label for="password">Current Password</label>
-                            <input type = "text" name = "password" id = "password" value = "********">
-                            <label for="confirm-password" id = "password-label">New Password</label>
-                            <div class = "comment">*must contain at least 8 characters one of which is a number</div>
-                            <input type = "text" name = "confirm-password" id = "confirm-password">
-                            <label for="confirm-password">Confirm New Password</label>
-                            <input type = "text" name = "confirm-password" id = "confirm-password">
-                            <laber for = "user-type">Account Permissions</laber>
-                            <select name = "user-type" class = "">
-                                <option selected value = "user">User</option>
-                                <option value = "Admin" value = "admin">Admin</option>
-                            </select>
-                        </div>
-                        <div id = "personal-info">
-                            <h4>Personal <br>Information</h4>
-                            <label for="first-name">First Name</label>
-                            <input type = "text" name = "first-name" id="first-name" value = "Jane">
-                            <label for="last-name">Last Name</label>
-                            <input type = "text" name = "last-name" id="last-name" value = "smith">
-                            <label for="street-address">Street Address (eg. 218 York Avenue)</label>
-                            <input type = "text" name = "street-address" id="street-address" value = "878 Sherbrooke West">
-                            <label for="apartment">Apartment</label>
-                            <input type = "number" name = "apartment" id="apartment" placeholder = "(Optional)">
-                            <label for="city">City</label>
-                            <input type = "text" name = "city" id="city" value = "Montreal">
-                            <label for="province">Province</label>
-                            <select name = "province" id="province">
-                                <option disabled>Select Province</option>
-                                <option selected>Quebec</option>
-                                <option>Ontario</option>
-                                <option>Prince Edward's Island</option>
-                                <option>Manitoba</option>
-                                <option>Alberta</option>
-                                <option>Saskachewan</option>
-                                <option>British Columbia</option>
-                                <option>Newfoundland and Labrador</option>
-                                <option>Northwest Territories</option>
-                                <option>Nova Scotia</option>
-                                <option>New Brownswick</option>
-                                <option>Yukon</option>
-                                <option>Nunavut</option>
-                            </select>
-                            <label for="postal-code">Postal Code</label>
-                            <input type = "text" name = "postal-code" id="postal-code" value = "H7J5R2">
-                            <label for="phone-number">Phone Number</label>
-                            <input type = "text" name = "phone-number" id = "phone-number" value = "(514)-746-5878">
-                        </div>
-                    </div>
+                    
                     <div class = "centered-submit">
-                        <input id = "submit-changes" class = "btn red-button" type = "submit" value = "SUBMIT CHANGES">
+                        <input id = "submit-changes" class = "btn red-button" type = "submit" value = "SAVE">
                     </div>
                 </form>
             </div>
+            <div class="mt-3 spacing"></div>
+            <a class = "left-button" style="margin-left: 65%;"><input class = "btn red-button" type = "button" value = "Add Order"></a>
             <div class="whitespace2"></div>
             
             <footer>
