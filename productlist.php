@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (!isset($_SESSION['admin']) || $_SESSION['admin'] == "" || $_SESSION['admin'] != 1)  {
-        header('location: index.html');
+        header('location: index.php');
     }
 ?>
 <html>
@@ -27,7 +27,7 @@
 
 <body>
     <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
             <img class="main-logo" src="Images/FruitCartLogo.png">
             <span class="navbar-icon-label">FRESHFAMILY MARKET</span>
         </a>
@@ -49,25 +49,25 @@
             <div class="collapse navbar-collapse text-center" id="navbarsExample11">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="btn btn-success mr-3" href="index.html" role="button">Home</a>
+                        <a class="btn btn-success mr-3" href="index.php" role="button">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success mr-3" href="FruitAndVegetables.html" role="button">Fruit and
+                        <a class="btn btn-success mr-3" href="FruitAndVegetables.php" role="button">Fruit and
                             Vegetables</a>
                     </li>
-                    <a class="btn btn-success mr-3" href="Meat.html" role="button">Meat</a>
+                    <a class="btn btn-success mr-3" href="Meat.php" role="button">Meat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success mr-3" href="Dairy.html" role="button">Dairy</a>
+                        <a class="btn btn-success mr-3" href="Dairy.php" role="button">Dairy</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success mr-3" href="Pantry.html" role="button">Bread and Pantry</a>
+                        <a class="btn btn-success mr-3" href="Pantry.php" role="button">Bread and Pantry</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success mr-3" href="Drinks.html" role="button">Beverages</a>
+                        <a class="btn btn-success mr-3" href="Drinks.php" role="button">Beverages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success mr-3" href="Organic.html" role="button">Organic</a>
+                        <a class="btn btn-success mr-3" href="Organic.php" role="button">Organic</a>
                     </li>
                 </ul>
             </div>
@@ -102,7 +102,7 @@
 
         </div>
         <div class="row user-row">
-            <div class="col-sm-1"><a href="Strawberries.html">Strawberries</a></div>
+            <div class="col-sm-1"><a href="Strawberries.php">Strawberries</a></div>
             <div class="col-sm-5">544-380-66</div>
             <div class="col-sm-2">10</div>
             <div class="col-sm-2">
@@ -111,7 +111,7 @@
             </div>
         </div>
         <div class="row user-row">
-            <div class="col-sm-1"><a href="Eggplant.html">California Eggplant</a></div>
+            <div class="col-sm-1"><a href="Eggplant.php">California Eggplant</a></div>
             <div class="col-sm-5">544-381-66</div>
             <div class="col-sm-2">12</div>
             <div class="col-sm-2">
@@ -120,7 +120,7 @@
             </div>
         </div>
         <div class="row user-row">
-            <div class="col-sm-1"><a href="Avocado.html">Avocado</a></div>
+            <div class="col-sm-1"><a href="Avocado.php">Avocado</a></div>
             <div class="col-sm-5">544-382-66</div>
             <div class="col-sm-2">5</div>
             <div class="col-sm-2">
@@ -129,7 +129,7 @@
             </div>
         </div>
         <div class="row user-row">
-            <div class="col-sm-1"><a href="Zucchini.html">Zucchini</a></div>
+            <div class="col-sm-1"><a href="Zucchini.php">Zucchini</a></div>
             <div class="col-sm-5">544-279-65</div>
             <div class="col-sm-2">5</div>
             <div class="col-sm-2">
@@ -149,7 +149,7 @@
 
         </div>
         <div class="row user-row">
-            <div class="col-sm-1"><a href="chicken.html">Chicken Thighs</a></div>
+            <div class="col-sm-1"><a href="chicken.php">Chicken Thighs</a></div>
             <div class="col-sm-5">684-324-12</div>
             <div class="col-sm-2">10</div>
             <div class="col-sm-2">
@@ -158,7 +158,7 @@
             </div>
         </div>
         <div class="row user-row">
-            <div class="col-sm-1"><a href="beef.html">Lean Ground Beef</a></div>
+            <div class="col-sm-1"><a href="beef.php">Lean Ground Beef</a></div>
             <div class="col-sm-5">684-564-61</div>
             <div class="col-sm-2">12</div>
             <div class="col-sm-2">
@@ -167,7 +167,7 @@
             </div>
         </div>
         <div class="row user-row">
-            <div class="col-sm-1"><a href="sausage.html">Italian Sausage</a></div>
+            <div class="col-sm-1"><a href="sausage.php">Italian Sausage</a></div>
             <div class="col-sm-5">684-723-32</div>
             <div class="col-sm-2">8</div>
             <div class="col-sm-2">
@@ -176,7 +176,7 @@
             </div>
         </div>
         <div class="row user-row">
-            <div class="col-sm-1"><a href="bacon.html">Sliced Bacon</a></div>
+            <div class="col-sm-1"><a href="bacon.php">Sliced Bacon</a></div>
             <div class="col-sm-5">684-723-32</div>
             <div class="col-sm-2">15</div>
             <div class="col-sm-2">
@@ -196,7 +196,7 @@
 
         </div>
         <div class="row user-row">
-            <div class="col-sm-1"><a href="Milk.html">2% Milk</a></div>
+            <div class="col-sm-1"><a href="Milk.php">2% Milk</a></div>
             <div class="col-sm-5">544-389-65</div>
             <div class="col-sm-2">15</div>
             <div class="col-sm-2">
@@ -205,7 +205,7 @@
             </div>
         </div>
         <div class="row user-row">
-            <div class="col-sm-1"><a href="Creme.html">10% Cream</a></div>
+            <div class="col-sm-1"><a href="Creme.php">10% Cream</a></div>
             <div class="col-sm-5">544-389-66</div>
             <div class="col-sm-2">7</div>
             <div class="col-sm-2">
@@ -214,7 +214,7 @@
             </div>
         </div>
         <div class="row user-row">
-            <div class="col-sm-1"><a href="Butter.html">Butter</a></div>
+            <div class="col-sm-1"><a href="Butter.php">Butter</a></div>
             <div class="col-sm-5">544-379-65</div>
             <div class="col-sm-2">7</div>
             <div class="col-sm-2">
@@ -223,7 +223,7 @@
             </div>
         </div>
         <div class="row user-row">
-            <div class="col-sm-1"><a href="ShreddedCheese.html">Shredded Cheese</a></div>
+            <div class="col-sm-1"><a href="ShreddedCheese.php">Shredded Cheese</a></div>
             <div class="col-sm-5">544-369-65</div>
             <div class="col-sm-2">7</div>
             <div class="col-sm-2">
@@ -242,7 +242,7 @@
 
             </div>
             <div class="row user-row">
-                <div class="col-sm-1"><a href="Baguette.html">Baguette</a></div>
+                <div class="col-sm-1"><a href="Baguette.php">Baguette</a></div>
                 <div class="col-sm-5">799-455-72</div>
                 <div class="col-sm-2">6</div>
                 <div class="col-sm-2">
@@ -251,7 +251,7 @@
                 </div>
             </div>
             <div class="row user-row">
-                <div class="col-sm-1"><a href="Croissant.html">Croissants</a></div>
+                <div class="col-sm-1"><a href="Croissant.php">Croissants</a></div>
                 <div class="col-sm-5">799-343-11</div>
                 <div class="col-sm-2">4</div>
                 <div class="col-sm-2">
@@ -260,7 +260,7 @@
                 </div>
             </div>
             <div class="row user-row">
-                <div class="col-sm-1"><a href="Cookies.html">Chocolate Chip Cookies</a></div>
+                <div class="col-sm-1"><a href="Cookies.php">Chocolate Chip Cookies</a></div>
                 <div class="col-sm-5">799-247-27</div>
                 <div class="col-sm-2">8</div>
                 <div class="col-sm-2">
@@ -280,7 +280,7 @@
 
                 </div>
                 <div class="row user-row">
-                    <div class="col-sm-1"><a href="water.html">Eska Water</a></div>
+                    <div class="col-sm-1"><a href="water.php">Eska Water</a></div>
                     <div class="col-sm-5">233-673-45</div>
                     <div class="col-sm-2">5</div>
                     <div class="col-sm-2">
@@ -289,7 +289,7 @@
                     </div>
                 </div>
                 <div class="row user-row">
-                    <div class="col-sm-1"><a href="Juice.html">Orange Juice</a></div>
+                    <div class="col-sm-1"><a href="Juice.php">Orange Juice</a></div>
                     <div class="col-sm-5">233-568-15</div>
                     <div class="col-sm-2">8</div>
                     <div class="col-sm-2">
@@ -298,7 +298,7 @@
                     </div>
                 </div>
                 <div class="row user-row">
-                    <div class="col-sm-1"><a href="Cola.html">Coca-Cola</a></div>
+                    <div class="col-sm-1"><a href="Cola.php">Coca-Cola</a></div>
                     <div class="col-sm-5">233-348-92</div>
                     <div class="col-sm-2">17</div>
                     <div class="col-sm-2">
@@ -307,7 +307,7 @@
                     </div>
                 </div>
                 <div class="row user-row">
-                    <div class="col-sm-1"><a href="Beer.html">Coors Light Beer</a></div>
+                    <div class="col-sm-1"><a href="Beer.php">Coors Light Beer</a></div>
                     <div class="col-sm-5">233-545-78</div>
                     <div class="col-sm-2">20</div>
                     <div class="col-sm-2">
@@ -326,7 +326,7 @@
 
                     </div>
                     <div class="row user-row">
-                        <div class="col-sm-1"><a href="Edamame.html">Edamame</a></div>
+                        <div class="col-sm-1"><a href="Edamame.php">Edamame</a></div>
                         <div class="col-sm-5">086-223-55</div>
                         <div class="col-sm-2">6</div>
                         <div class="col-sm-2">
@@ -335,7 +335,7 @@
                         </div>
                     </div>
                     <div class="row user-row">
-                        <div class="col-sm-1"><a href="Kugua.html">Bitter Melon</a></div>
+                        <div class="col-sm-1"><a href="Kugua.php">Bitter Melon</a></div>
                         <div class="col-sm-5">086-250-70</div>
                         <div class="col-sm-2">3</div>
                         <div class="col-sm-2">
@@ -344,7 +344,7 @@
                         </div>
                     </div>
                     <div class="row user-row">
-                        <div class="col-sm-1"><a href="Kale.html">Kale</a></div>
+                        <div class="col-sm-1"><a href="Kale.php">Kale</a></div>
                         <div class="col-sm-5">086-753-09</div>
                         <div class="col-sm-2">6</div>
                         <div class="col-sm-2">
@@ -364,7 +364,7 @@
 </body>
 
 <footer>
-    <a href="index.html"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
+    <a href="index.php"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
     <span class="navbar-icon-label name">FRESHFAMILY MARKET</span>
 </footer>
 

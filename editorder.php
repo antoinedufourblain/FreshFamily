@@ -1,8 +1,46 @@
 <?php
     session_start();
     if (!isset($_SESSION['admin']) || $_SESSION['admin'] == "" || $_SESSION['admin'] != 1)  {
-        header('location: index.html');
+        header('location: index.php');
     }
+
+    $xml1=simplexml_load_file("order.xml") or die("Error: Cannot create object");
+
+    if(empty($_SESSION['Edit']))
+    $obj = array();
+    $itemArr = array();
+    $itemA = array();
+    $productArr = array();
+    $orderArr = array();
+    foreach($xml1->order as $item){
+        foreach($item->product as $product){
+        $obj = array('id' => (string)$product->id,'name' => (string)$product->name, 'price' => (string)$product->price,'quantity'=> (string)$product->quantity,'image'=> (string)$product->image);
+        $itemArr = $obj;
+        array_push($itemA, $itemArr);
+        $itemArr= array();
+    }
+    array_push($productArr, $itemA);
+    $itemA = array();
+}
+    array_push($orderArr,$productArr);
+    $editArray = array();
+
+    if (isset( $_POST['editCount']) ) {
+        $_SESSION["index"] = $_POST['editCount'];
+        foreach($orderArr as $obj){
+            $_SESSION['Edit'] = $obj[$_SESSION["index"]];
+        }
+    }
+    $editArray = $_SESSION['Edit'];
+
+    
+    if (isset($_POST['btn1'])){
+       unset($editArray[$_POST['deleteItem']]);
+       $_SESSION['Edit']=$editArray;
+       echo'<script>
+       window.location.href = document.URL;
+       </script>';
+    }   
 ?>
     <html>
         <head>
@@ -25,7 +63,7 @@
 
         <body>
             <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
-                <a class="navbar-brand" href = "index.html">
+                <a class="navbar-brand" href = "index.php">
                     <img class="main-logo" src = "Images/FruitCartLogo.png">
                     <span class="navbar-icon-label">FRESHFAMILY MARKET</span>
                 </a>
@@ -47,24 +85,24 @@
                     <div class="collapse navbar-collapse text-center" id="navbarsExample11">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="btn btn-success mr-3" href="index.html" role="button">Home</a>
+                                <a class="btn btn-success mr-3" href="index.php" role="button">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="FruitAndVegetables.html" role="button">Fruit and Vegetables</a>
+                                <a class="btn btn-success mr-3" href="FruitAndVegetables.php" role="button">Fruit and Vegetables</a>
                             </li>
-                                <a class="btn btn-success mr-3" href="Meat.html" role="button">Meat</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="Dairy.html" role="button">Dairy</a>
+                                <a class="btn btn-success mr-3" href="Meat.php" role="button">Meat</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="Pantry.html" role="button">Bread and Pantry</a>
+                                <a class="btn btn-success mr-3" href="Dairy.php" role="button">Dairy</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="Drinks.html" role="button">Beverages</a>
+                                <a class="btn btn-success mr-3" href="Pantry.php" role="button">Bread and Pantry</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="Organic.html" role="button">Organic</a>
+                                <a class="btn btn-success mr-3" href="Drinks.php" role="button">Beverages</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-success mr-3" href="Organic.php" role="button">Organic</a>
                             </li>
                         </ul>
                     </div>
@@ -82,11 +120,11 @@
                     <h1>EDIT ORDER</h1>
                 </div>
             </div>
-
+            
             <div class = "back-end-title-alt">
                 <h1>EDIT ORDER</h1>
             </div>
-
+            
             <div class = "sign-in sign-up edit-user">
                 <h2>EDIT ORDER</h2>
             
@@ -96,56 +134,138 @@
                       <tr>
                         <th scope="col" style="background-color: #990000;">#</th>
                         <th scope="col" style="background-color: #990000;">Item</th>
-                        <th scope="col" style="background-color: #990000;">Quantity</th>
+                        <th scope="col" style="background-color: #990000;padding-right: 50px;">Quantity</th>
                         <th scope="col" style="background-color: #990000;">Price</th>
                         <th scope="col" style="background-color: #990000;"></th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Chicken Thighs</td>
-                        <td><input class = "product-quantity ml-2 mr-2" type = "number" name = "chicken" placeholder="1"/></td>
-                        <td><input type="number" id="itemprice" name="itemprice" placeholder="$17.25" style=" width: 70px;">
-                        </td>
-                        <td><button class="btn btn-danger" type="cartbutton">X</button></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Avocado</td>
-                        <td><input class = "product-quantity ml-2 mr-2" type = "number" name = "avocado" placeholder="1"/></td>
-                        <td><input type="number" id="itemprice" name="itemprice" placeholder="$3.98" style="width: 70px;"></td>
-                        <td><button class="btn btn-danger" type="cartbutton">X</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Strawberries</td>
-                        <td><input class = "product-quantity ml-2 mr-2" type = "number" name = "avocado" placeholder="1"/></td>
-                        <td><input type="number" id="itemprice" name="itemprice" placeholder="$4.99" style=" width: 70px;">
-                        </td>
+                        <?php
+                        $i = 0;
+                        $arrayCount=0;
+                        $data=[];
+                        foreach($editArray as $obj){
+                            $value=$obj['quantity'];
+                            $i++;
+                        echo '
+                        <tr>
+                        <th scope="row">'.$i.'</th>
+                        <td>'.$obj['name'].'</td>
+                        <form method="post" style = "display: inline;">
                         <td>
-                            <button class="btn btn-danger" type="cartbutton">X</button>
+                        <form method="post" action='.$_SERVER['PHP_SELF'].'>
+                        <button name="incqty" style="border-radius: 5px;background-color: #bf4040; border-color: #bf4040; color: white">+</button>
+                        <input class="backendorder" type="text" size="2" name="item" value="'.$value.'" style="display: inline;margin-left: 8px;">
+                        <input type ="hidden" name = "index" value ='.$arrayCount.'>
+                        <button name="decqty" style="border-radius: 5px;background-color: #bf4040; border-color: #bf4040; color: white">-</button>
                         </td>
-                      </tr>
+                        <form method="post" style = "display: inline;">
+                        <td><button name ="btn1" class="btn btn-danger" type="cartbutton">X</button></td>
+                         <input type = "hidden" name = "deleteItem" value ='.$arrayCount.'>
+                         </button>
+                         </form>
+                      </tr>';
+                      $arrayCount++;
+                        }
+                        ?>
+
+                        <?php
+                       
+                        if(isset($_POST['incqty'])){
+                            $editArray[$_POST['index']]['quantity']++;
+                            $_SESSION['Edit']=$editArray;
+                            echo'<script>
+                            window.location.href = document.URL;
+                            </script>';
+                        }
+
+                        if(isset($_POST['decqty'])){
+                            $editArray[$_POST['index']]['quantity']--;
+                            $_SESSION['Edit']=$editArray;
+                            echo'<script>
+                            window.location.href = document.URL;
+                            </script>';
+                        }
+                        ?>
+                     
+    
                     </tbody>
                   </table>
                 </div>
-                <form>
-                    
+                <form method="post" style = "display: inline;">
                     <div class = "centered-submit">
                         <input id = "submit-changes" class = "btn red-button" type = "submit" value = "SAVE">
+                        <input type = "hidden" name = "saveOrder">
                     </div>
                 </form>
+                <?php
+
+                if (isset($_POST['quantityItem'])){
+                    $_SESSION['Edit'][$_POST['quantityItem']]['quantity'] = $_POST['quantity'];
+                    $_SESSION['Edit']=$editArray;
+                }
+                
+            if (isset($_POST['saveOrder'])){
+
+                $orderArr[0][$_SESSION["index"]]=$editArray;     
+                $xml = new DOMDocument("1.0", "UTF-8");
+                $xml->load('order.xml');
+
+                $elements = $xml->getElementsByTagName('order');
+                for ($i = $elements->length; --$i >= 0; ) {
+                    $href = $elements->item($i);
+                    $href->parentNode->removeChild($href);    
+                }
+            
+                $username="User";
+            
+                $usernametag=$xml->createElement("username",$username);
+                $rootTag = $xml->getElementsByTagName("root")->item(0);
+
+                foreach($orderArr[0] as $order){
+                    $orderTag = $xml->createElement("order");
+
+                    foreach ($order as $product){
+                        $id=$product['id'];
+                        $productName = $product['name'];
+                        $price = $product['price'];
+                        $quantity = $product['quantity'];
+            
+                        $productNameTag = $xml->createElement("product");
+                        $idTag=$xml->createElement("id",$id);
+                        $nameTag=$xml->createElement("name",$productName);
+                        $quantityTag= $xml->createElement("quantity",$quantity);
+                        $priceTag =$xml->createElement("price",$price);
+
+                        $productNameTag->appendChild($idTag);
+                        $productNameTag->appendChild($nameTag);
+                        $productNameTag->appendChild($quantityTag);
+                        $productNameTag->appendChild($priceTag);
+            
+                        $orderTag->appendChild($productNameTag);
+                    }
+                    $orderTag->appendChild($usernametag);
+                    $rootTag->appendChild($orderTag);
+                    $xml->formatoutput = true;
+                    $xml->save('order.xml');
+                } 
+                $orderArr = array();    
+            }
+                ?>
             </div>
             <div class="mt-3 spacing"></div>
-            <a class = "left-button" style="margin-left: 65%;"><input class = "btn red-button" type = "button" value = "Add Order"></a>
+            <form action = "Cart.php" method="post" style = "display: inline;">
+            <a class = "left-button" style="margin-left: 65%;"><input class = "btn red-button" type = "submit" value = "BACK TO CART"></a>
+            <input type="hidden" name="array" value="<?php echo(htmlentities(serialize($editArray))); ?>">
+            </a>
+            </form>
             <div class="whitespace2"></div>
             
+            
             <footer>
-                <a href="index.html"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
+                <a href="index.php"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
                 <span class="navbar-icon-label name">FRESHFAMILY MARKET</span>
             </footer>
         </body>
     </html>
-
+    
