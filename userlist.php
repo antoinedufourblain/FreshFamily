@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (!isset($_SESSION['admin']) || $_SESSION['admin'] == "" || $_SESSION['admin'] != 1)  {
-        header('location: index.html');
+        header('location: index.php');
     }
     $admin = false;
     if (isset($_POST['email']) && $_POST['email'] != null)  {
@@ -68,7 +68,7 @@
                 }
             ?>
             <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
-                <a class="navbar-brand" href = "index.html">
+                <a class="navbar-brand" href = "index.php">
                     <img class="main-logo" src = "Images/FruitCartLogo.png">
                     <span class="navbar-icon-label">FRESHFAMILY MARKET</span>
                 </a>
@@ -90,24 +90,24 @@
                     <div class="collapse navbar-collapse text-center" id="navbarsExample11">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="btn btn-success mr-3" href="index.html" role="button">Home</a>
+                                <a class="btn btn-success mr-3" href="index.php" role="button">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="FruitAndVegetables.html" role="button">Fruit and Vegetables</a>
+                                <a class="btn btn-success mr-3" href="FruitAndVegetables.php" role="button">Fruit and Vegetables</a>
                             </li>
-                                <a class="btn btn-success mr-3" href="Meat.html" role="button">Meat</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="Dairy.html" role="button">Dairy</a>
+                                <a class="btn btn-success mr-3" href="Meat.php" role="button">Meat</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="Pantry.html" role="button">Bread and Pantry</a>
+                                <a class="btn btn-success mr-3" href="Dairy.php" role="button">Dairy</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="Drinks.html" role="button">Beverages</a>
+                                <a class="btn btn-success mr-3" href="Pantry.php" role="button">Bread and Pantry</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="Organic.html" role="button">Organic</a>
+                                <a class="btn btn-success mr-3" href="Drinks.php" role="button">Beverages</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-success mr-3" href="Organic.php" role="button">Organic</a>
                             </li>
                         </ul>
                     </div>
@@ -200,7 +200,7 @@
             <div class="whitespace2"></div>
             
             <footer>
-                <a href="index.html"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
+                <a href="index.php"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
                 <span class="name navbar-icon-label">FRESHFAMILY MARKET</span>
             </footer>
         </body>

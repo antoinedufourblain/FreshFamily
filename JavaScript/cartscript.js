@@ -1,3 +1,4 @@
+$(document).ready(function() {
 var cartArray  = []
 console.log(cartArray);
 function Item(name, price, count, img) {
@@ -7,23 +8,35 @@ function Item(name, price, count, img) {
     this.imgFile = img
   }
 
-var item1= new Item('Chicken Thighs', "$7.25", 1, 'Images/chicke.png' );
-var item2 = new Item('Avocado', "$1.49", 1, 'Images/avocado1.png' );
-var item3 = new Item('Italian Sausage', "$4.45", 1, 'Images/sausage.jpeg' );
-var item4 = new Item('Quebon 10% Coffee Creme', "$2.25", 1, 'Images/creme1.png' );
-var item5 = new Item('California Eggplant', "$2.49", 1, 'Images/eggplant1.png' );
-
-if (sessionStorage.getItem("cartArray") == null) {
-    cartArray = [item1, item2, item3, item4, item5];
+    cartArray = obj;
+    console.log(cartArray);
     saveCart()
     console.log(sessionStorage);
-}
-if (sessionStorage.getItem("cartArray") != null) {
+    loadCart();
+
+console.log(cartArray);
+if (sessionStorage.getItem("sessionArray") != null) {
     loadCart();
     }
 
  function saveCart() {
     sessionStorage.setItem('cartArray', JSON.stringify(cartArray));
+    console.log(JSON.stringify(cartArray));
+
+   /* var cart  = []
+    for(var i in cartArray) {
+      $id = cartArray[i].id;
+      $id =[id = cartArray[i].id, name = cartArray[i].name, price = cartArray[i].price, quantity = cartArray[i].quantity, image = cartArray[i].image];
+      cart.push($id);
+      console.log($id);
+     
+    }
+    console.log(cart);*/
+      $.ajax({ 
+      type: "POST", 
+      url: "Cart.php",
+      data: { 'cart' : JSON.stringify(cartArray)},
+    }); 
 }
 function loadCart() {
     cartArray = JSON.parse(sessionStorage.getItem('cartArray'));
@@ -36,7 +49,7 @@ var result = "";
     result += `
     <div class="cart-row" id="${cartArray[i].name}"> 
       <div class="cart-item cart-column">
-          <img class="cart-item-image" src=${cartArray[i].imgFile} width="100" height="100">
+          <img class="cart-item-image" src="${cartArray[i].image}" width="100" height="100">
           <span class="cart-item-title">${cartArray[i].name}</span>
       </div>
       <span class="cart-price cart-column">${cartArray[i].price}</span>
@@ -45,7 +58,7 @@ var result = "";
           <button class="plus-btn" type="cartbutton" name="button">
             <div class="plus">+</div>
           </button>
-          <input class ="cart-quantity-input" type="text" name="name" value=${cartArray[i].count}>
+          <input class ="cart-quantity-input" type="text" name="name" value=${cartArray[i].quantity}>
           <button class="minus-btn" type="cartbutton" name="button">
               <div class="minus">-</div>
           </button>
@@ -121,7 +134,7 @@ function saveQuantity(){
       var cartRow = cartRows[i]
       var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
       console.log( quantityElement.value);
-        cartArray[i].count = quantityElement.value}
+        cartArray[i].quantity = quantityElement.value}
         console.log(cartArray);
     saveCart();
 }
@@ -143,6 +156,7 @@ function updateCartTotal() {
       var priceElement = cartRow.getElementsByClassName('cart-price')[0]
       var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
       var price = parseFloat(priceElement.innerHTML.replace('$', ''));
+      console.log(quantity);
       var quantity = quantityElement.value;
       subTotal = subTotal + (price * quantity);
   }
@@ -169,21 +183,5 @@ function updateCartTotal() {
  
   console.log(sessionStorage);
 
-}
-
-document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)   
-function purchaseClicked() {
-        alert('Purchase completed')
-        var cartItems = document.getElementsByClassName('cart-items')[0]
-        while (cartItems.hasChildNodes()) {
-            cartItems.removeChild(cartItems.firstChild)
-        }
-
-        for (var i = 0; i < cartArray.length; i++) {
-               cartArray.splice(i, cartArray.length);
-           }
-           saveCart();
-        updateCartTotal()
-    }
-
+}});
 

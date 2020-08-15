@@ -1,12 +1,8 @@
-<?php
-    session_start();
-    if (!isset($_SESSION['admin']) || $_SESSION['admin'] == "" || $_SESSION['admin'] != 1)  {
-        header('location: index.php');
-    }
-?>
+<!DOCTYPE html>
     <html>
+        
         <head>
-            <Title>Edit Product</Title>
+            <Title>Avocado</Title>
             <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
                 integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -23,16 +19,21 @@
                 <link rel="icon" href="Images/FruitCartLogo.png">
         </head>
 
-        <body>
+        <body onload = "loadQuantity('avocadoQuantity'); loadPackageType('avocadoQuantityType'); displayAvocadoPriceOnload()">
+
             <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
                 <a class="navbar-brand" href = "index.php">
                     <img class="main-logo" src = "Images/FruitCartLogo.png">
                     <span class="navbar-icon-label">FRESHFAMILY MARKET</span>
                 </a>
                 <div class="navbar-right">
+                    <a href = "Cart.php">
+                        <img class = "icons" src = "Images/AddToCart.png">
+                        <span class="navbar-icon-label mr-4">My Cart</span>
+                    </a>
                     <a href = "SignIn.php">
                         <img class = "icons" src = "Images/SignInIconOnly.png">
-                        <span class="navbar-icon-label">Sign Out</span>
+                        <span class="navbar-icon-label">Sign In</span>
                     </a>
                 </div>
             </nav>
@@ -47,7 +48,7 @@
                     <div class="collapse navbar-collapse text-center" id="navbarsExample11">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="btn btn-success mr-3" href="#" role="button">Home</a>
+                                <a class="btn btn-success mr-3" href="index.php" role="button">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="btn btn-success mr-3" href="FruitAndVegetables.php" role="button">Fruit and Vegetables</a>
@@ -70,68 +71,51 @@
                     </div>
                 </div>
             </nav>
+
+            <div class="media product" style="margin-top: 0; margin-left: 5%">
+                <img src="Images/Avocado.png" class="media-list-image mr-3" alt="Avocado">
+                <div class="media-body">
+                <div class="textblack" style="color: black;">
+                  <h5 class="mt-0">Avocado</h5>
+                    <p>Weight: varies</p>
+                    <p name = "avocadoPrice" data-price="1.49">Price: $1.49</p>
+                    <p>
+                        <button class="btn green-button" type="button" onclick="openCollapse()">
+                            More Description
+                        </button>
+                    </p>
+                    <div class="mr-5" id="collapse" style = "display: none; max-height: 0; overflow:hidden; transition: max-height 0.35s ease-out">
+                        <div class="card card-body">
+                            <h6>Product Number</h6>
+                            <p>544-382-66</p>
+                            <h6>Description</h6>
+                            <p>Fresh large avocadoes from Mexico best in smoothies, salads, or on toast </p>
+                            <h6>Ingredients</h6>
+                            <p>Avocado</p>
+                            <h6>Storage</h6>
+                            <p>Refrigerate until consumption or up to one week</p>
+                        </div>
+                    </div>
+                    <form id = "avocadoCart">
+                        <div class="add-to-cart">
+                        <form class="add-to-cart" action="Cart.php" method="post">
+                                <input class="product-quantity ml-2 mr-2" type="number" name="quantity" id = "avocadoQuantity" onchange="saveQuantity('avocadoQuantity'); updateItemPrice('avocado');" value="avocadoQuantity"
+                                    placeholder="1" />
+                                <input type="hidden" name="productid" value="avocado">
+                                <input class="add-to-cart-submit" type="image" name="ToCart" src="Images/AddToCart.png"
+                                    alt="Submit Form" />
+                        </form>
+                        </div>
+                    </form>
+                </div>
+            </div>
+              </div>
+              <div class="whitespace2"></div>
             
-            <div class = "back-end-nav-title">
-                <nav id = "back-end-nav">
-                    <a href="userlist.php">User List</a>
-                    <a href="productlist.php">Product List</a>
-                    <a href="orderlist.php">Order List</a>
-                </nav>
-
-                <div class = "back-end-title">
-                    <h1>EDIT PRODUCT</h1>
-                </div>
-            </div>
-
-            <div class = "back-end-title-alt">
-                <h1>EDIT PRODUCT</h1>
-            </div>
-            <div class = "sign-in sign-up edit-user">
-                <p>Add or Edit Product</p>
-            <form >
-
-            <div class="account-personal-info">
-                <div id = "account">
-                    <label for="category">Product Category</label>
-                    <select id="category" name="category">
-                        <option value="vegetables">Fruits and Vegetables</option>
-                        <option value="meat">Meat Products</option>
-                        <option value="dairy">Dairy Products</option>
-                        <option value="pantry">Bread and Pantry</option>
-                        <option value="drinks">Beverages</option>
-                        <option value="organic">Organic Products</option>
-                    </select><br><br>
-                <label for="prodname">Product Name</label>
-                <input type="text" id="prodname" name="prodname"><br><br>
-                <label for="prodnumber">Product Number</label>
-                <input type="text" id="prodnumber" name="prodnumber"><br><br>
-
-                <label for="inventory">Current Inventory</label>
-                <input type="number" id="inventory" name="inventory" min="0"><br><br>
-            </div>
-            <div id = "personal-info">
-                <label for="description">Product Description</label>
-                <textarea id="description" name="description"></textarea><br><br>
-                <label for="ingredients">Product Ingredients</label>
-                <textarea id="ingredients" name="ingredients"></textarea><br><br>
-                <label for="storage">Storage Instructions</label>
-                <textarea id="storage" name="storage"></textarea><br><br>
-                <label for="image">Upload an image:</label>
-                <input type="file" id="image" name="image" accept="image/*"><br><br>
-                </div>
-            </div>
-            <div class = "centered-submit">
-                <input id = "submit-changes" class = "btn red-button" type = "submit" value = "SUBMIT CHANGES">
-            </div>
-        </form>
-    </div>
-    <div class="whitespace2"></div>
-
-
-                <footer>
-                    <img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY">
-                    <span class="navbar-icon-label name">FRESHFAMILY MARKET</span>
-                </footer>
+              <footer>
+                  <a href="index.php"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
+                  <span class="navbar-icon-label name">FRESHFAMILY MARKET</span>
+              </footer>
+              <script type = "text/javascript" src = "JavaScript/DianaProducts.js"></script>
         </body>
-
     </html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <products>
 <fruitsandvegetables>
@@ -222,3 +223,160 @@
 <image>kale.png</image>
 </item>
 </products>
+=======
+<inventory>
+    <item>
+        <id>avocado</id>
+        <name>Avocado</name>
+        <cost>$1.49</cost>
+        <image>Images/Avocado.png</image>
+    </item>
+    <item>
+        <id>eggplant</id>
+        <name>California Eggplant</name>
+        <cost>$2.50</cost>
+        <quantity>1</quantity>
+        <image>Images/Eggplant.png</image>
+    </item>
+     <item>
+        <id>strawberries</id>
+        <name>Strawberries</name>
+        <cost>$4.00</cost>
+        <quantity>1</quantity>
+        <image>Images/Strawberries.png</image>
+    </item>
+     <item>
+        <id>zucchini</id>
+        <name>Zucchini</name>
+        <cost>$0.75</cost>
+        <quantity>1</quantity>
+        <image>Images/Zucchini.png</image>
+    </item>
+    <item>
+        <id>chicken</id>
+        <name>Chicken Thighs</name>
+        <cost>$7.25</cost>
+        <quantity>1</quantity>
+        <image>Images/chicken.png</image>
+    </item>
+     <item>
+        <id>beef</id>
+        <name>Lean Ground Beef</name>
+        <cost>$1.68</cost>
+        <quantity>1</quantity>
+        <image>Images/beef.jpg</image>
+    </item>
+     <item>
+        <id>sausage</id>
+        <name>Italian Sausages</name>
+        <cost>$4.45</cost>
+        <quantity>1</quantity>
+        <image>Images/sausage.jpeg</image>
+    </item>
+     <item>
+        <id>bacon</id>
+        <name>Sliced Bacon</name>
+        <cost>$6.45</cost>
+        <quantity>1</quantity>
+        <image>Images/bacon.jpeg</image>
+    </item>
+    <item>
+        <id>milk</id>
+        <name>Quebon 2% Milk</name>
+        <cost>$6.25</cost>
+        <quantity>1</quantity>
+        <image>Images/QuebonMilk.png</image>
+    </item>
+    <item>
+        <id>creme</id>
+        <name>Quebon 10% Coffee Creme</name>
+        <cost>$2.25</cost>
+        <quantity>1</quantity>
+        <image>Images/Creme.png</image>
+    </item>
+    <item>
+        <id>butter</id>
+        <name>Salted Butter</name>
+        <cost>$3.25</cost>
+        <quantity>1</quantity>
+        <image>Images/SaltedButter.png</image>
+    </item>
+    <item>
+        <id>cheese</id>
+        <name>Kraft Cheddar Cheese</name>
+        <cost>$4.50</cost>
+        <quantity>1</quantity>
+        <image>Images/KraftCheddar.png</image>
+    </item>
+     <item>
+        <id>baguette</id>
+        <name>Baked Baguette</name>
+        <cost>$2.49</cost>
+        <quantity>1</quantity>
+        <image>Images/baguette.png</image>
+    </item>
+    <item>
+        <id>croissants</id>
+        <name>Croissants</name>
+        <cost>$3.99</cost>
+        <quantity>1</quantity>
+        <image>Images/croissant.png</image>
+    </item>
+    <item>
+        <id>cookies</id>
+        <name>Chocolate Chip Cookies</name>
+        <cost>$4.99</cost>
+        <quantity>1</quantity>
+        <image>Images/cookie.png</image>
+    </item>
+    <item>
+        <id>water</id>
+        <name>Eska Water</name>
+        <cost>$4.75</cost>
+        <quantity>1</quantity>
+        <image>Images/water.jpeg</image>
+    </item>
+    <item>
+        <id>juice</id>
+        <name>Orange Juice</name>
+        <cost>$3.90</cost>
+        <quantity>1</quantity>
+        <image>Images/juice.jpg</image>
+    </item>
+    <item>
+        <id>coca</id>
+        <name>Coca-Cola</name>
+        <cost>$2.50</cost>
+        <quantity>1</quantity>
+        <image>Images/cola.jpg</image>
+    </item>
+    <item>
+        <id>beer</id>
+        <name>Coors Light Beer</name>
+        <cost>$3.25</cost>
+        <quantity>1</quantity>
+        <image>Images/beer.jpeg</image>
+    </item>
+    <item>
+        <id>edamame</id>
+        <name>Edamame</name>
+        <cost>$2.99</cost>
+        <quantity>1</quantity>
+        <image>Images/edamame.png</image>
+    </item>
+    <item>
+        <id>melon</id>
+        <name>Bitter Melon</name>
+        <cost>$2.49</cost>
+        <quantity>1</quantity>
+        <image>Images/kugua.png</image>
+    </item>
+    <item>
+        <id>kale</id>
+        <name>Kale</name>
+        <cost>$2.99</cost>
+        <quantity>1</quantity>
+        <image>Images/kale.png</image>
+    </item>
+</inventory>
+>>>>>>> 2093b71cf3acb95a0691d66080a7da00a580bf1e

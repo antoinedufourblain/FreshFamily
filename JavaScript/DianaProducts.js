@@ -16,7 +16,7 @@ function displayAvocadoPriceOnload()  {
     if (avocadoTotalPrice != null)
         document.getElementsByName("avocadoPrice")[0].innerHTML = "Price: $" + avocadoTotalPrice;
     else 
-        document.getElementsByName("avocadoPrice")[0].innerHTML = "Price: $" + avocadoSingle + " each or $" + avocado6pack + " for 6";
+        document.getElementsByName("avocadoPrice")[0].innerHTML = "Price: $" + avocadoSingle;
 }
 
 // updating total price for avocado

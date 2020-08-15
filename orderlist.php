@@ -1,8 +1,42 @@
 <?php
     session_start();
     if (!isset($_SESSION['admin']) || $_SESSION['admin'] == "" || $_SESSION['admin'] != 1)  {
-        header('location: index.html');
+        header('location: index.php');
     }
+
+     
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_SESSION['postdata'] = $_POST;
+        unset($_POST);
+        header("Location: ".$_SERVER[REQUEST_URI]);
+        exit;
+        }
+        
+        if (@$_SESSION['postdata']){
+        $_POST=$_SESSION['postdata'];
+        unset($_SESSION['postdata']);
+        }
+        $orderArr=array();
+    $xml1=simplexml_load_file("order.xml") or die("Error: Cannot create object");
+
+    $obj = array();
+    $itemArr = array();
+    $itemA = array();
+    $productArr = array();
+    $orderArr = array();
+
+    foreach($xml1->order as $item){
+        foreach($item->product as $product){
+        $obj = array('id' => (string)$product->id,'name' => (string)$product->name, 'price' => (string)$product->price,'quantity'=> (string)$product->quantity, 'image'=> (string)$product->image);
+        $itemArr = $obj;
+        array_push($itemA, $itemArr);
+        $itemArr= array();
+    }
+    array_push($productArr, $itemA);
+    $itemA = array();
+    }
+    array_push($orderArr,$productArr);
+    
 ?>
 <html>
 
@@ -21,12 +55,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+        <script src="JavaScript/order.js" async></script>
         <link rel="icon" href="Images/FruitCartLogo.png">
 </head>
 
 <body>
     <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
             <img class="main-logo" src="Images/FruitCartLogo.png">
             <span class="navbar-icon-label">FRESHFAMILY MARKET</span>
         </a>
@@ -48,25 +83,25 @@
             <div class="collapse navbar-collapse text-center" id="navbarsExample11">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="btn btn-success mr-3" href="index.html" role="button">Home</a>
+                        <a class="btn btn-success mr-3" href="index.php" role="button">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success mr-3" href="FruitAndVegetables.html" role="button">Fruit and
+                        <a class="btn btn-success mr-3" href="FruitAndVegetables.php" role="button">Fruit and
                             Vegetables</a>
                     </li>
-                    <a class="btn btn-success mr-3" href="Meat.html" role="button">Meat</a>
+                    <a class="btn btn-success mr-3" href="Meat.php" role="button">Meat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success mr-3" href="Dairy.html" role="button">Dairy</a>
+                        <a class="btn btn-success mr-3" href="Dairy.php" role="button">Dairy</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success mr-3" href="Pantry.html" role="button">Bread and Pantry</a>
+                        <a class="btn btn-success mr-3" href="Pantry.php" role="button">Bread and Pantry</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success mr-3" href="Drinks.html" role="button">Beverages</a>
+                        <a class="btn btn-success mr-3" href="Drinks.php" role="button">Beverages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success mr-3" href="Organic.html" role="button">Organic</a>
+                        <a class="btn btn-success mr-3" href="Organic.php" role="button">Organic</a>
                     </li>
                 </ul>
             </div>
@@ -89,182 +124,152 @@
         <h1>ORDER LIST</h1>
     </div>
 
-    <div class="container-fluid user-list">
+    <div class="container-fluid user-list" style="padding-bottom: 0px;">
         <div class="row user-table-title">
-            <div class="col-sm-1"></div>
+            <div class="col-sm-2"></div>
             <div class="col-sm-2">ORDER NUMBER</div>
             <div class="col-sm-2">NAME</div>
-            <div class="col-sm-2">PURCHASE DATE<div class="comment">(DD-MM-YYYY)</div>
-            </div>
-            <div class="col-sm-1">TOTAL</div>
-            <div class="col-sm-2">STATUS</div>
-            <div class="col-sm-2">ACTION</div>
-        </div>
-        <div class="row user-row">
-            <div class="col-sm-1">
-                <a href="editorder.php"><input class="btn red-button" type="button" value="Edit"></a>
-            </div>
-            <div class="col-sm-2">276</div>
-            <div class="col-sm-2">Diana Afanasyev</div>
-            <div class="col-sm-2">14-07-2020</div>
-            <div class="col-sm-1">$32.00</div>
-            <div class="col-sm-2">Pending</div>
-            <div class="col-sm-2"><a class="btn red-button" data-toggle="collapse" href="#multiCollapseExample1"
-                    role="button" aria-expanded="false" aria-controls="multiCollapseExample1">More</a>
-            </div>
-        </div>
+            <div class="col-sm-2">TRACKING ID</div>
 
 
-        <div class="row user-row">
-            <div class="col-sm-1">
-                <a href="editorder.php"><input class="btn red-button" type="button" value="Edit"></a>
-            </div>
-            <div class="col-sm-2">275</div>
-            <div class="col-sm-2">John Smith</div>
-            <div class="col-sm-2">05-07-2020</div>
-            <div class="col-sm-1">$13.35</div>
-            <div class="col-sm-2">Processing</div>
-            <div class="col-sm-2"><a class="btn red-button" data-toggle="collapse" href="#multiCollapseExample2"
-                    role="button" aria-expanded="false" aria-controls="multiCollapseExample2">More</a>
-            </div>
-
         </div>
-        <div class="row user-row">
-            <div class="col-sm-1"><a href="editorder.php"><input class="btn red-button" type="button" value="Edit"></a>
-            </div>
-            <div class="col-sm-2">275</div>
-            <div class="col-sm-2">Jane Carpenter</div>
-            <div class="col-sm-2">03-07-2020</div>
-            <div class="col-sm-1">$26.78</div>
-            <div class="col-sm-2">Shipped</div>
-            <div class="col-sm-2"><a class="btn red-button" data-toggle="collapse" href="#multiCollapseExample3"
-                    role="button" aria-expanded="false" aria-controls="multiCollapseExample3">More</a>
-            </div>
+        <?php
+       $j = 0;
+       $arrayCount = 0;
+        foreach($orderArr as $obj){
+            $total =0;
+            $quantity =0;
+           
+            foreach ($obj as $order){
+                $j++;
+        echo'  <div class="row user-row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">'.$j.'</div>
+        <div class="col-sm-2">User</div>
+        <div class="col-sm-2">'.rand(100000000,50000000).'</div>
+        <div class="col-sm-2">
+        <form action ="editorder.php" method = "post" style = "display: inline;">
+        <input class="btn red-button" type = "submit" value="Edit">
+        <input type = "hidden" name = "action" value = "edit">
+        <input type = "hidden" name = "editCount" value ='.$arrayCount.'>
+        </form>
         </div>
-    </div>
+        <div class="col-sm-1">
+        <form method="post" style = "display: inline;">
+        <input class="btn red-button" type = "submit" id="delete" type="button" value="Delete">
+        <input type = "hidden" name = "deleteOrder" value ='.$arrayCount.'>
+        </form>
+        </div>
+        </div>
 
-    <div class="collapse multi-collapse" id="multiCollapseExample1">
-        <div class="card card-body" style="background-color: rgb(210, 235, 182)">
-            <div class="table-responsive">
+     </div>
+    <div class="card card-body" style="background-color: rgb(210, 235, 182);margin-bottom: 5px;">    
+        <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Item</th>
-                    <th scope="col">Product Number</th>
                     <th scope="col" style="padding-left:0px">Quantity</th>
                     <th scope="col">Price</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Chicken Thighs</td>
-                    <td>684-324-12</td>
-                    <td>1</td>
-                    <td>$17.25</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Avocado</td>
-                    <td>544-382-66</td>
-                    <td>2</td>
-                    <td>$3.98</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Strawberries</td>
-                    <td>544-380-66</td>
-                    <td>1</td>
-                    <td>$2.25</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-        </div>
-    </div>
-    <div class="collapse multi-collapse" id="multiCollapseExample2">
-        <div class="card card-body" style="background-color: rgb(210, 235, 182)">
-            <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Item</th>
-                    <th scope="col">Product Number</th>
-                    <th scope="col" style="padding-left:0px">Quantity</th>
-                    <th scope="col">Price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Quebon 10% Coffee Creme</td>
-                    <td>544-389-65</td>
-                    <td>1</td>
-                    <td>$2.25</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>California Eggplant</td>
-                    <td>544-381-66</td>
-                    <td>2</td>
-                    <td>$4.98</td>
-                  </tr>
-                </tbody>
+            <tr>';
+             $i=1;
+             $arrayCount++;
+            foreach ($order as $product){
+                            echo' <tr>
+                    <th scope="row">'.$i.'</th>
+                    <td>'.$product['name'].'</td>
+                    <td>'.$product['quantity'].'</td>
+                    <td>'.$product['price'].'</td>
+                    </tr>';
+                    $i++; }
+                        
+                        
+        echo' </tbody>
             </table>
-            </div>
-        </div>
-    </div>
-    <div class="collapse multi-collapse" id="multiCollapseExample3">
-        <div class="card card-body" style="background-color: rgb(210, 235, 182)">
-            <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Item</th>
-                    <th scope="col">Product Number</th>
-                    <th scope="col" style="padding-left:0px">Quantity</th>
-                    <th scope="col">Price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Fresh Baked Baguette</td>
-                    <td>799-455-72</td>
-                    <td>2</td>
-                    <td>$4.98</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Cookies, box of 8</td>
-                    <td>799-247-27</td>
-                    <td>1</td>
-                    <td>$4.99</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Edaname</td>
-                    <td>799-455-72</td>
-                    <td>3</td>
-                    <td>$8.97</td>
-                  </tr>
-                </tbody>
-            </table>
-            </div>
-        </div>
-    </div>
+             </div>
+            </div>';
+    
+            }
+    }
+    ?>
+    <?php
+   
+    if (isset($_POST['deleteOrder'])){
+    
+        unset($orderArr[0][$_POST['deleteOrder']]);
 
-    <a class = "ml-3 left-button" href="editorder.php"><input class = "btn red-button" type = "button" value = "Add Order"></a>
-    <a class = "center-button"><input class = "btn red-button" type = "button" value = "Save"></a>
+        $xml = new DOMDocument("1.0", "UTF-8");
+        $xml->load('order.xml');
 
+        $elements = $xml->getElementsByTagName('order');
+        for ($i = $elements->length; --$i >= 0; ) {
+            $href = $elements->item($i);
+            $href->parentNode->removeChild($href);    
+        }
+    
+        $rootTag = $xml->getElementsByTagName("root")->item(0);
+    if(!empty($orderArr)){
+        foreach($orderArr[0] as $order){
+            $orderTag = $xml->createElement("order");
+
+            foreach ($order as $product){
+                $id=$product['id'];
+                $productName = $product['name'];
+                $price = $product['price'];
+                $quantity = $product['quantity'];
+                $image = $product['image'];
+       
+                $productNameTag = $xml->createElement("product");
+                $idTag=$xml->createElement("id",$id);
+                $nameTag=$xml->createElement("name",$productName);
+                $quantityTag= $xml->createElement("quantity",$quantity);
+                $priceTag =$xml->createElement("price",$price);
+                $imageTag =$xml->createElement("price",$image);
+
+                $productNameTag->appendChild($idTag);
+                $productNameTag->appendChild($nameTag);
+                $productNameTag->appendChild($quantityTag);
+                $productNameTag->appendChild($priceTag);
+                $productNameTag->appendChild($imageTag);
+    
+                $orderTag->appendChild($productNameTag);
+            }
+            $rootTag->appendChild($orderTag);}
+            $xml->formatoutput = true;
+            $xml->save('order.xml');
+           
+            
+        } 
+        echo'<script>
+        window.location.href = document.URL;
+        </script>';
+        $orderArr = array();       
+    }
+
+      
+    ?>
+    
+    <a class = "ml-3 left-button" href="addorder.php"> <input class = "btn red-button" type = "button" value = "Add Order"></a>
+    <form method="post" style = "display: inline;">
+    <a class = "center-button">
+    <input class = "btn red-button" type = "Submit" value = "Save">
+    <input type = "hidden" name = "Save">
+    </a>
+    </form>
+    <?php 
+    if (isset($_POST['Save'])){
+        echo"<script type='text/javascript'>alert('Saved Cart');</script>";
+    }
+    ?>
 
     <div class="whitespace2"></div>
 
     <footer>
-        <a href="index.html"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
+        <a href="index.php"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
         <span class="navbar-icon-label name">FRESHFAMILY MARKET</span>
     </footer>
 </body>
