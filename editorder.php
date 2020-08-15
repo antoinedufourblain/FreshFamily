@@ -236,11 +236,13 @@
                         $nameTag=$xml->createElement("name",$productName);
                         $quantityTag= $xml->createElement("quantity",$quantity);
                         $priceTag =$xml->createElement("price",$price);
+                        $imageTag =$xml->createElement("image",$image);
 
                         $productNameTag->appendChild($idTag);
                         $productNameTag->appendChild($nameTag);
                         $productNameTag->appendChild($quantityTag);
                         $productNameTag->appendChild($priceTag);
+                        $productNameTag->appendChild($imageTag);
             
                         $orderTag->appendChild($productNameTag);
                     }
