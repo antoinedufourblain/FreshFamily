@@ -90,7 +90,7 @@ if(!empty($productArr)){
     
   unset($_POST['deleteProduct']);
 }
-  echo var_dump($productArr);
+
 
 $position=0;
  /* foreach ( $productArr as $product ) {
