@@ -73,12 +73,12 @@ $newItem= $_SESSION['newItem'];
 
         <body>
             <nav class="logo-bar navbar navbar-expand-lg navbar-light justify-content-between">
-                <a class="navbar-brand" href = "index.html">
+                <a class="navbar-brand" href = "index.php">
                     <img class="main-logo" src = "Images/FruitCartLogo.png">
                     <span class="navbar-icon-label">FRESHFAMILY MARKET</span>
                 </a>
                 <div class="navbar-right">
-                    <a href = "SignIn.html">
+                    <a href = "SignIn.php">
                         <img class = "icons" src = "Images/SignInIconOnly.png">
                         <span class="navbar-icon-label">Sign Out</span>
                     </a>
@@ -98,21 +98,21 @@ $newItem= $_SESSION['newItem'];
                                 <a class="btn btn-success mr-3" href="#" role="button">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="FruitAndVegetables.html" role="button">Fruit and Vegetables</a>
+                                <a class="btn btn-success mr-3" href="FruitAndVegetables.php" role="button">Fruit and Vegetables</a>
                             </li>
-                                <a class="btn btn-success mr-3" href="Meat.html" role="button">Meat</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="Dairy.html" role="button">Dairy</a>
+                                <a class="btn btn-success mr-3" href="Meat.php" role="button">Meat</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="Pantry.html" role="button">Bread and Pantry</a>
+                                <a class="btn btn-success mr-3" href="Dairy.php" role="button">Dairy</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="Drinks.html" role="button">Beverages</a>
+                                <a class="btn btn-success mr-3" href="Pantry.php" role="button">Bread and Pantry</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-success mr-3" href="Organic.html" role="button">Organic</a>
+                                <a class="btn btn-success mr-3" href="Drinks.php" role="button">Beverages</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-success mr-3" href="Organic.php" role="button">Organic</a>
                             </li>
                         </ul>
                     </div>
@@ -121,9 +121,9 @@ $newItem= $_SESSION['newItem'];
             
             <div class = "back-end-nav-title">
                 <nav id = "back-end-nav">
-                    <a href="userlist.html">User List</a>
-                    <a href="productlist.html">Product List</a>
-                    <a href="orderlist.html">Order List</a>
+                    <a href="userlist.php">User List</a>
+                    <a href="productlist.php">Product List</a>
+                    <a href="orderlist.php">Order List</a>
                 </nav>
 
                 <div class = "back-end-title">

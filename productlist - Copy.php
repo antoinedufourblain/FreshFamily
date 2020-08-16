@@ -29,68 +29,8 @@
       $itemArr= array();
   
   }
-  if (isset($_POST['deleteProduct'])&& $_POST['deleteProduct']!=null&&($_SERVER['REQUEST_METHOD'] == 'POST')){
-    $productToGo=(int)$_POST['deleteProduct'];
-    array_splice($productArr,$productToGo,1);
-
-    $xml = new DOMDocument("1.0", "UTF-8");
-    $xml->load('productList.xml');
-
-
-
-  /*  $elements = $xml->getElementsByTagName('item');
-    for ($i = $elements->length; --$i >= 0; ) {
-        $href = $elements->item($i);
-        $href->parentNode->removeChild($href);    
-    }
-
-    $rootTag = $xml->getElementsByTagName("root")->item(0);
-if(!empty($productArr)){
-    */
-    $productsTag = $xml->createElement("products");
-    $rootTag = $xml->getElementsByTagName("products")->item(0);
-    foreach($productArr as $product){
-        $itemTag = $xml->createElement("item");
-
-            $category=$product['category'];
-            $productname=$product['productname'];
-            $productnumber = $product['productnumber'];
-            $inventory = $product['inventory'];
-            $description = $product['description'];
-            $ingredients = $product['ingredients'];
-            $storage = $product['storage'];
-            $image = $product['image'];
-   
-            $itemNameTag = $xml->createElement("item");
-            $categoryTag=$xml->createElement("category",$category);
-            $productnameTag=$xml->createElement("productname",$productname);
-            $productnumberTag=$xml->createElement("productnumber",$productnumber);
-            $inventoryTag= $xml->createElement("inventory",$inventory);
-            $descriptionTag =$xml->createElement("description",$description);
-            $ingredientsTag =$xml->createElement("ingredients",$ingredients);
-            $storageTag =$xml->createElement("storage",$storage);
-            $imageTag =$xml->createElement("image",$image);
-
-            $itemNameTag->appendChild($categoryTag);
-            $itemNameTag->appendChild($productnameTag);
-            $itemNameTag->appendChild($productnumberTag);
-            $itemNameTag->appendChild($inventoryTag);
-            $itemNameTag->appendChild($descriptionTag);
-            $itemNameTag->appendChild($ingredientsTag);
-            $itemNameTag->appendChild($storageTag);
-            $itemNameTag->appendChild($imageTag);
-
-            $itemTag->appendChild($itemNameTag);
-        }
-        $productsTag->appendChild($itemNameTag);
-        $xml->formatoutput = true;
-        file_put_contents("productList.xml", $xml->saveXML());
-       
-        
-    
-  unset($_POST['deleteProduct']);
-}
-  echo var_dump($productArr);
+  
+  
 
 $position=0;
  /* foreach ( $productArr as $product ) {
@@ -372,7 +312,7 @@ $position=0;
             
                 <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
             <form method="post" style = "display: inline;">
-                <input class="btn red-button" type = "submit" id="deleteProduct" type="button" value="Delete">
+                <input class="btn red-button" type = "submit" id="delete" type="button" value="Delete">
                 <input type = "hidden" name = "deleteProduct" value ='.$position.'>
                 </form>
                 '.$position.'
@@ -392,17 +332,15 @@ $position=0;
                 <div class="whitespace2"></div>
 </body>
 <?php
-/*
 
-    if (isset($_POST['deleteProduct'])&& $_POST['deleteProduct']!=null){
-        $productToGo=(int)$_POST['deleteProduct'];
-        $productArr=array_splice($productArr,$productToGo,1);
+
+/*
+    if (isset($_POST['deleteProduct'])){
+        unset($productArr[$_POST['deleteProduct']]);
 
         $xml = new DOMDocument("1.0", "UTF-8");
         $xml->load('productList.xml');
     
- echo var_dump($productArr);
-
         $elements = $xml->getElementsByTagName('item');
         for ($i = $elements->length; --$i >= 0; ) {
             $href = $elements->item($i);
@@ -411,7 +349,6 @@ $position=0;
     
         $rootTag = $xml->getElementsByTagName("root")->item(0);
     if(!empty($productArr)){
-        $productsTag = $xml->createElement("products");
         $rootTag = $xml->getElementsByTagName("products")->item(0);
         foreach($productArr as $product){
             $itemTag = $xml->createElement("item");
@@ -446,7 +383,7 @@ $position=0;
 
                 $itemTag->appendChild($itemNameTag);
             }
-            $productsTag->appendChild($itemNameTag);
+            $rootTag->appendChild($itemNameTag);
             $xml->formatoutput = true;
             file_put_contents("productList.xml", $xml->saveXML());
            
