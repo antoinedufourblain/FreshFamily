@@ -29,13 +29,21 @@
                     break;
                 }
             }
+
             fclose($file);
+
+            if ($arr[sizeof($arr)-1] == "")  {
+                unset($arr[sizeof($arr)-1]);
+                $arr[sizeof($arr)-1] = rtrim($arr[sizeof($arr)-1]);
+            }
 
             // Rewriting file
             $file = fopen('users.txt','w');
 
             foreach($arr as $value)  {
-                fputs($file,$value);
+                if ($value != "") {
+                    fputs($file,$value);
+                }
             }
             fclose($file);
         }
