@@ -3,6 +3,37 @@
     if (!isset($_SESSION['admin']) || $_SESSION['admin'] == "" || $_SESSION['admin'] != 1)  {
         header('location: index.php');
     }
+    $xml1=simplexml_load_file("productList.xml") or die("Error: Cannot create object");
+    $obj = array();
+    $itemArr = array();
+    $productArr = array();
+  
+
+    
+
+  
+    foreach($xml1->item as $item){
+      $obj = array('category' => (string)$item->category,'productname' => (string)$item->productname,'productnumber' => (string)$item->productnumber, 'inventory' => (string)$item->inventory,'description'=> (string)$item->description,'ingredients'=> (string)$item->ingredients,'storage'=> (string)$item->storage,'image'=> (string)$item->image);
+      $itemArr = $obj;
+      array_push($productArr, $itemArr);
+      $itemArr= array();
+  
+  }
+  
+  
+
+$position=0;
+ /* foreach ( $productArr as $product ) {
+
+    echo '<dl style="margin-bottom: 1em;">';
+  
+    foreach ( $product as $key => $value ) {
+      echo "<dt>$key</dt><dd>$value</dd>";
+    }
+  
+    echo '</dl>';
+  }*/
+  
 ?>
 <html>
 
@@ -101,42 +132,25 @@
 
 
         </div>
-        <div class="row user-row">
-            <div class="col-sm-1"><a href="Strawberries.php">Strawberries</a></div>
-            <div class="col-sm-5">544-380-66</div>
-            <div class="col-sm-2">10</div>
+        <?php
+        $section="fruitsandvegetables";
+        foreach($productArr as $innerArray){
+            $cat = $innerArray["category"];
+                if ($section==$cat){
+            
+            echo
+            '<div class="row user-row">
+            <div class="col-sm-1">'.$innerArray['productname'].'</a></div>
+            <div class="col-sm-5">'.$innerArray['productnumber'].'</div>
+            <div class="col-sm-2">'.$innerArray['inventory'].'</div>
             <div class="col-sm-2">
                 <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
-        </div>
-        <div class="row user-row">
-            <div class="col-sm-1"><a href="Eggplant.php">California Eggplant</a></div>
-            <div class="col-sm-5">544-381-66</div>
-            <div class="col-sm-2">12</div>
-            <div class="col-sm-2">
-                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                <input class="btn red-button" type="button" value="Delete">
-            </div>
-        </div>
-        <div class="row user-row">
-            <div class="col-sm-1"><a href="Avocado.php">Avocado</a></div>
-            <div class="col-sm-5">544-382-66</div>
-            <div class="col-sm-2">5</div>
-            <div class="col-sm-2">
-                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                <input class="btn red-button" type="button" value="Delete">
-            </div>
-        </div>
-        <div class="row user-row">
-            <div class="col-sm-1"><a href="Zucchini.php">Zucchini</a></div>
-            <div class="col-sm-5">544-279-65</div>
-            <div class="col-sm-2">5</div>
-            <div class="col-sm-2">
-                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                <input class="btn red-button" type="button" value="Delete">
-            </div>
-        </div>
+        </div>';
+        }}
+        ?>
+        
     </div>
     <div class="whitespace1"></div>
     <h4>Meat</h4>
@@ -148,42 +162,25 @@
 
 
         </div>
-        <div class="row user-row">
-            <div class="col-sm-1"><a href="chicken.php">Chicken Thighs</a></div>
-            <div class="col-sm-5">684-324-12</div>
-            <div class="col-sm-2">10</div>
+        <?php
+        $section="meat";
+        foreach($productArr as $innerArray){
+            $cat = $innerArray["category"];
+                if ($section==$cat){
+            
+            echo
+            '<div class="row user-row">
+            <div class="col-sm-1">'.$innerArray['productname'].'</a></div>
+            <div class="col-sm-5">'.$innerArray['productnumber'].'</div>
+            <div class="col-sm-2">'.$innerArray['inventory'].'</div>
             <div class="col-sm-2">
                 <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
-        </div>
-        <div class="row user-row">
-            <div class="col-sm-1"><a href="beef.php">Lean Ground Beef</a></div>
-            <div class="col-sm-5">684-564-61</div>
-            <div class="col-sm-2">12</div>
-            <div class="col-sm-2">
-                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                <input class="btn red-button" type="button" value="Delete">
-            </div>
-        </div>
-        <div class="row user-row">
-            <div class="col-sm-1"><a href="sausage.php">Italian Sausage</a></div>
-            <div class="col-sm-5">684-723-32</div>
-            <div class="col-sm-2">8</div>
-            <div class="col-sm-2">
-                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                <input class="btn red-button" type="button" value="Delete">
-            </div>
-        </div>
-        <div class="row user-row">
-            <div class="col-sm-1"><a href="bacon.php">Sliced Bacon</a></div>
-            <div class="col-sm-5">684-723-32</div>
-            <div class="col-sm-2">15</div>
-            <div class="col-sm-2">
-                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                <input class="btn red-button" type="button" value="Delete">
-            </div>
-        </div>
+        </div>';
+        }}
+        ?>
+        
     </div>
     <div class="whitespace1"></div>
     <h4>Dairy</h4>
@@ -195,41 +192,25 @@
 
 
         </div>
-        <div class="row user-row">
-            <div class="col-sm-1"><a href="Milk.php">2% Milk</a></div>
-            <div class="col-sm-5">544-389-65</div>
-            <div class="col-sm-2">15</div>
+        <?php
+        $section="dairy";
+        foreach($productArr as $innerArray){
+            $cat = $innerArray["category"];
+                if ($section==$cat){
+            
+            echo
+            '<div class="row user-row">
+            <div class="col-sm-1">'.$innerArray['productname'].'</a></div>
+            <div class="col-sm-5">'.$innerArray['productnumber'].'</div>
+            <div class="col-sm-2">'.$innerArray['inventory'].'</div>
             <div class="col-sm-2">
                 <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
                 <input class="btn red-button" type="button" value="Delete">
             </div>
-        </div>
-        <div class="row user-row">
-            <div class="col-sm-1"><a href="Creme.php">10% Cream</a></div>
-            <div class="col-sm-5">544-389-66</div>
-            <div class="col-sm-2">7</div>
-            <div class="col-sm-2">
-                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                <input class="btn red-button" type="button" value="Delete">
-            </div>
-        </div>
-        <div class="row user-row">
-            <div class="col-sm-1"><a href="Butter.php">Butter</a></div>
-            <div class="col-sm-5">544-379-65</div>
-            <div class="col-sm-2">7</div>
-            <div class="col-sm-2">
-                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                <input class="btn red-button" type="button" value="Delete">
-            </div>
-        </div>
-        <div class="row user-row">
-            <div class="col-sm-1"><a href="ShreddedCheese.php">Shredded Cheese</a></div>
-            <div class="col-sm-5">544-369-65</div>
-            <div class="col-sm-2">7</div>
-            <div class="col-sm-2">
-                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                <input class="btn red-button" type="button" value="Delete">
-            </div>
+        </div>';
+        }}
+        ?>
+        
         </div>
         <div class="whitespace1"></div>
         <h4>Bread and Pantry</h4>
@@ -238,36 +219,27 @@
                 <div class="col-sm-1">Product Name</div>
                 <div class="col-sm-5">Product Number</div>
                 <div class="col-sm-2">Inventory</div>
+                </div>
+                <?php
+        $section="breadandpantry";
+        foreach($productArr as $innerArray){
+            $cat = $innerArray["category"];
+                if ($section==$cat){
+            
+            echo
+            '<div class="row user-row">
+            <div class="col-sm-1">'.$innerArray['productname'].'</a></div>
+            <div class="col-sm-5">'.$innerArray['productnumber'].'</div>
+            <div class="col-sm-2">'.$innerArray['inventory'].'</div>
+            <div class="col-sm-2">
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
+                <input class="btn red-button" type="button" value="Delete">
+            </div>
+        </div>';
+        }}
+        ?>
 
 
-            </div>
-            <div class="row user-row">
-                <div class="col-sm-1"><a href="Baguette.php">Baguette</a></div>
-                <div class="col-sm-5">799-455-72</div>
-                <div class="col-sm-2">6</div>
-                <div class="col-sm-2">
-                    <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                    <input class="btn red-button" type="button" value="Delete">
-                </div>
-            </div>
-            <div class="row user-row">
-                <div class="col-sm-1"><a href="Croissant.php">Croissants</a></div>
-                <div class="col-sm-5">799-343-11</div>
-                <div class="col-sm-2">4</div>
-                <div class="col-sm-2">
-                    <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                    <input class="btn red-button" type="button" value="Delete">
-                </div>
-            </div>
-            <div class="row user-row">
-                <div class="col-sm-1"><a href="Cookies.php">Chocolate Chip Cookies</a></div>
-                <div class="col-sm-5">799-247-27</div>
-                <div class="col-sm-2">8</div>
-                <div class="col-sm-2">
-                    <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                    <input class="btn red-button" type="button" value="Delete">
-                </div>
-            </div>
 
             <div class="whitespace1"></div>
             <h4>Beverages</h4>
@@ -279,41 +251,30 @@
 
 
                 </div>
-                <div class="row user-row">
-                    <div class="col-sm-1"><a href="water.php">Eska Water</a></div>
-                    <div class="col-sm-5">233-673-45</div>
-                    <div class="col-sm-2">5</div>
-                    <div class="col-sm-2">
-                        <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                        <input class="btn red-button" type="button" value="Delete">
-                    </div>
-                </div>
-                <div class="row user-row">
-                    <div class="col-sm-1"><a href="Juice.php">Orange Juice</a></div>
-                    <div class="col-sm-5">233-568-15</div>
-                    <div class="col-sm-2">8</div>
-                    <div class="col-sm-2">
-                        <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                        <input class="btn red-button" type="button" value="Delete">
-                    </div>
-                </div>
-                <div class="row user-row">
-                    <div class="col-sm-1"><a href="Cola.php">Coca-Cola</a></div>
-                    <div class="col-sm-5">233-348-92</div>
-                    <div class="col-sm-2">17</div>
-                    <div class="col-sm-2">
-                        <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                        <input class="btn red-button" type="button" value="Delete">
-                    </div>
-                </div>
-                <div class="row user-row">
-                    <div class="col-sm-1"><a href="Beer.php">Coors Light Beer</a></div>
-                    <div class="col-sm-5">233-545-78</div>
-                    <div class="col-sm-2">20</div>
-                    <div class="col-sm-2">
-                        <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                        <input class="btn red-button" type="button" value="Delete">
-                    </div>
+                <?php
+        $section="beverages";
+        foreach($productArr as $innerArray){
+            $position=array_search($innerArray,$productArr);
+            $cat = $innerArray["category"];
+                if ($section==$cat){
+            
+            echo
+            '<div class="row user-row">
+            <div class="col-sm-1">'.$innerArray['productname'].'</a></div>
+            <div class="col-sm-5">'.$innerArray['productnumber'].'</div>
+            <div class="col-sm-2">'.$innerArray['inventory'].'</div>
+            <div class="col-sm-2">
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
+                <form method="post" style = "display: inline;">
+                <input class="btn red-button" type = "submit" id="delete" type="button" value="Delete">
+                <input type = "hidden" name = "deleteProduct" value ='.$innerArray['productname'].'>
+                </form>
+                '.$position.'
+            </div>
+        </div>';
+        }}
+        ?>
+               
                 </div>
                 <div class="whitespace1"></div>
                 <h4>Organic</h4>
@@ -325,35 +286,33 @@
 
 
                     </div>
-                    <div class="row user-row">
-                        <div class="col-sm-1"><a href="Edamame.php">Edamame</a></div>
-                        <div class="col-sm-5">086-223-55</div>
-                        <div class="col-sm-2">6</div>
-                        <div class="col-sm-2">
-                            <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                            <input class="btn red-button" type="button" value="Delete">
-                        </div>
-                    </div>
-                    <div class="row user-row">
-                        <div class="col-sm-1"><a href="Kugua.php">Bitter Melon</a></div>
-                        <div class="col-sm-5">086-250-70</div>
-                        <div class="col-sm-2">3</div>
-                        <div class="col-sm-2">
-                            <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                            <input class="btn red-button" type="button" value="Delete">
-                        </div>
-                    </div>
-                    <div class="row user-row">
-                        <div class="col-sm-1"><a href="Kale.php">Kale</a></div>
-                        <div class="col-sm-5">086-753-09</div>
-                        <div class="col-sm-2">6</div>
-                        <div class="col-sm-2">
-                            <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
-                            <input class="btn red-button" type="button" value="Delete">
-                        </div>
-                    </div>
+                    <?php
+        $section="organic";
+        foreach($productArr as $innerArray){
+            $position=array_search($innerArray,$productArr);
+            $cat = $innerArray["category"];
+                if ($section==$cat){
+            
+            echo
+            '<div class="row user-row">
+            <div class="col-sm-1">'.$innerArray['productname'].'</a></div>
+            <div class="col-sm-5">'.$innerArray['productnumber'].'</div>
+            <div class="col-sm-2">'.$innerArray['inventory'].'</div>
+            <div class="col-sm-2">
+            
+                <a href="productedit.php"><input class="btn red-button" type="button" value="Edit"></a>
+            <form method="post" style = "display: inline;">
+                <input class="btn red-button" type = "submit" id="delete" type="button" value="Delete">
+                <input type = "hidden" name = "deleteProduct" value ='.$position.'>
+                </form>
+                '.$position.'
+            </div>
+        </div>';
+        }}
+        ?>
+                   
                 </div>
-                <a href="productedit.php">
+                <a href="productadd.php">
                     <div class="center-button"><input class="btn red-button" type="button" value="Add a Product"></div>
                 </a>
             </div>
@@ -362,6 +321,68 @@
 
                 <div class="whitespace2"></div>
 </body>
+<?php
+
+
+/*
+    if (isset($_POST['deleteProduct'])){
+        unset($productArr[$_POST['deleteProduct']]);
+
+        $xml = new DOMDocument("1.0", "UTF-8");
+        $xml->load('productList.xml');
+    
+        $elements = $xml->getElementsByTagName('item');
+        for ($i = $elements->length; --$i >= 0; ) {
+            $href = $elements->item($i);
+            $href->parentNode->removeChild($href);    
+        }
+    
+        $rootTag = $xml->getElementsByTagName("root")->item(0);
+    if(!empty($productArr)){
+        $rootTag = $xml->getElementsByTagName("products")->item(0);
+        foreach($productArr as $product){
+            $itemTag = $xml->createElement("item");
+
+                $category=$product['category'];
+                $productname=$product['productname'];
+                $productnumber = $product['productnumber'];
+                $inventory = $product['inventory'];
+                $description = $product['description'];
+                $ingredients = $product['ingredients'];
+                $storage = $product['storage'];
+                $image = $product['image'];
+       
+                $itemNameTag = $xml->createElement("item");
+                $categoryTag=$xml->createElement("category",$category);
+                $productnameTag=$xml->createElement("productname",$productname);
+                $productnumberTag=$xml->createElement("productnumber",$productnumber);
+                $inventoryTag= $xml->createElement("inventory",$inventory);
+                $descriptionTag =$xml->createElement("description",$description);
+                $ingredientsTag =$xml->createElement("ingredients",$ingredients);
+                $storageTag =$xml->createElement("storage",$storage);
+                $imageTag =$xml->createElement("image",$image);
+
+                $itemNameTag->appendChild($categoryTag);
+                $itemNameTag->appendChild($productnameTag);
+                $itemNameTag->appendChild($productnumberTag);
+                $itemNameTag->appendChild($inventoryTag);
+                $itemNameTag->appendChild($descriptionTag);
+                $itemNameTag->appendChild($ingredientsTag);
+                $itemNameTag->appendChild($storageTag);
+                $itemNameTag->appendChild($imageTag);
+
+                $itemTag->appendChild($itemNameTag);
+            }
+            $rootTag->appendChild($itemNameTag);
+            $xml->formatoutput = true;
+            file_put_contents("productList.xml", $xml->saveXML());
+           
+            
+        } 
+      
+    }
+*/
+?>
 
 <footer>
     <a href="index.php"><img src="Images/FruitCartLogo.png" class="logo mr-2" alt="FRESHFAMILY"></a>
